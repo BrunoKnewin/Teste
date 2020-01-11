@@ -1,8 +1,5 @@
 ﻿using Knewin.Core.Repositories;
 using Knewin.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Knewin.Infra.Repositories
 {

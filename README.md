@@ -78,3 +78,18 @@ Faça um método que deve receber uma string como parâmetro e retornar um bool 
 **Boa sorte !!**
  
 ![alt](https://ajsoifer.files.wordpress.com/2014/04/keep-calm-and-don-t-feed-the-troll-48.png)
+
+
+Excluir a base
+--------------
+# 
+Para rodar os comandos deve estar dentro do projeto Knewin.Infra
+dotnet ef database drop -c CityContext -s ..\Knewin.CityApi
+
+Adicionar migrações
+-------------------
+dotnet ef migrations add MIGRATION_NAME -c CityContext -s ..\Knewin.CityApi -o .\Data\Migrations
+
+Rodar as migrações manualmente
+------------------------------
+dotnet ef database update -c CityContext -s ..\Knewin.CityApi 

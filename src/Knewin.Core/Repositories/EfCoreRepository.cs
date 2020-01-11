@@ -3,28 +3,17 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Knewin.Core.Repositories
 {
     public class EfCoreRepository<TEntity, TContext> : IRepository<TEntity>
-            where TEntity : Entity
-            where TContext : DbContext
+        where TEntity : Entity
+        where TContext : DbContext
     {
         private readonly TContext _context;
 
         protected readonly DbSet<TEntity> DbSet;
-
-        private void SaveChanges()
-        {
-            _context.SaveChanges();
-        }
-
-        private async Task SaveChangesAsync()
-        {
-            await _context.SaveChangesAsync();
-        }
 
         public EfCoreRepository(TContext context)
         {
@@ -32,17 +21,8 @@ namespace Knewin.Core.Repositories
             DbSet = _context.Set<TEntity>();
         }
 
-        public virtual void Add(TEntity obj)
-        {
-            DbSet.Add(obj);
-            SaveChanges();
-        }
-
-        public async Task AddAsync(TEntity obj)
-        {
-            await DbSet.AddAsync(obj);
-            await SaveChangesAsync();
-        }
+        private void SaveChanges()
+            => _context.SaveChanges();
 
         public virtual Task<TEntity> GetByIdAsync(long id)
             => DbSet.FindAsync(id);
@@ -51,21 +31,33 @@ namespace Knewin.Core.Repositories
             => DbSet.Find(id);
 
         public virtual List<TEntity> GetPage(int limit, int offset)
+            => DbSet.Take(limit).Skip(offset).ToList();
+
+        public List<TEntity> GetAllById(long[] ids)
+            => DbSet.Where(e => ids.Contains(e.Id)).ToList();
+
+        public bool Exists(long id)
+            => DbSet.Any(e => e.Id == id);
+
+        public virtual IQueryable<TEntity> GetAll()
+            => DbSet;
+
+        public virtual void Add(TEntity obj)
         {
-            return DbSet.Take(limit).Skip(offset).ToList();
+            DbSet.Add(obj);
+            SaveChanges();
+        }
+
+        public async void AddAsync(TEntity obj)
+        {
+            await DbSet.AddAsync(obj);
+            SaveChanges();
         }
 
         public virtual void Update(TEntity obj)
         {
             DbSet.Update(obj);
             SaveChanges();
-        }
-
-        public bool Exists(long id)
-        {
-            if (id == 0) return false;
-
-            return DbSet.Any(e => e.Id == id);
         }
 
         public void Remove(long id)
@@ -82,10 +74,10 @@ namespace Knewin.Core.Repositories
         public bool Add(IEnumerable<TEntity> items)
         {
             var list = items.ToList();
+
             foreach (var item in list)
-            {
                 DbSet.Add(item);
-            }
+
             SaveChanges();
             return true;
         }
@@ -95,16 +87,10 @@ namespace Knewin.Core.Repositories
             var list = entities.ToList();
 
             foreach (var item in list)
-            {
                 DbSet.Update(item);
-            }
+
             _context.SaveChanges();
             return true;
-        }
-
-        public List<TEntity> GetAllById(long[] ids)
-        {
-            return DbSet.Where(e => ids.Contains(e.Id)).ToList();
         }
     }
 }

@@ -1,20 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Knewin.Core.Repositories
 {
     public interface IRepository<TEntity>
-   where TEntity : class
+        where TEntity : class
     {
         void Add(TEntity entity);
 
-        Task AddAsync(TEntity obj);
+        void AddAsync(TEntity obj);
 
         Task<TEntity> GetByIdAsync(long id);
 
         TEntity Get(long id);
 
         List<TEntity> GetPage(int limit, int offset);
+
+        IQueryable<TEntity> GetAll();
 
         List<TEntity> GetAllById(long[] ids);
 

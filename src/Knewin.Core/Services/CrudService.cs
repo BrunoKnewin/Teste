@@ -21,10 +21,9 @@ namespace Knewin.Core.Services
             return await _repository.GetByIdAsync(id);
         }
 
-        public virtual async Task<TEntity> Insert(TEntity entity)
+        public virtual void Insert(TEntity entity)
         {
-            await _repository.AddAsync(entity);
-            return entity;
+            _repository.AddAsync(entity);
         }
 
         public virtual bool Insert(IEnumerable<TEntity> items)
@@ -48,14 +47,6 @@ namespace Knewin.Core.Services
             _repository.Update(entities);
 
             return entities;
-        }
-
-        public virtual async Task<TEntity> Save(TEntity entity)
-        {
-            if (entity.Id > 0)
-                return Update(entity);
-
-            return await Insert(entity);
         }
 
         public virtual void Delete(long id)

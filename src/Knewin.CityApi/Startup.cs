@@ -1,10 +1,16 @@
 ﻿using System.Linq;
 using System.Reflection;
-using Knewin.Swagger;
+using AutoMapper;
+using Knewin.CityApi.Mappings;
+using Knewin.CityApi.Swagger.Filters;
+using Knewin.Infra.Data.Contexts;
+using Knewin.Infra.Repositories;
+using Knewin.Infra.Services;
 using Knewin.Swagger.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -23,8 +29,18 @@ namespace Knewin.CityApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var mappingConfig = new MapperConfiguration(mc => mc.AddProfile(new MappingProfile()));
+            services.AddSingleton(mappingConfig.CreateMapper());
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddDbContext<CityContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CityContext")));
+
+            services.AddScoped(typeof(ICityRepository), typeof(CityRepository));
+
+            services.AddScoped<ICityCrudService, CityCrudService>();
+
+            services.AddApiVersioning();
             services.AddSwaggerGen(s =>
             {
                 s.AddSwaggerGenOption(typeof(Version), ApiHelper.ProductName, ApiHelper.CompanyName);
@@ -39,9 +55,8 @@ namespace Knewin.CityApi
                     return versions.Any(v => $"v{v.ToString()}" == docName);
                 });
 
-                //s.OperationFilter<OperationFilter>();
-                //s.DocumentFilter<DocumentFilter>();
-                //s.DocumentFilter<EnumDocumentFilter>();
+                s.OperationFilter<OperationFilter>();
+                s.DocumentFilter<DocumentFilter>();
             });
         }
 
@@ -59,10 +74,7 @@ namespace Knewin.CityApi
             }
 
             app.UseSwagger();
-            app.UseSwaggerUI(s =>
-            {
-                s.AddSwaggerUIOptions(typeof(Version), ApiHelper.ProductName);
-            });
+            app.UseSwaggerUI(s => { s.AddSwaggerUIOptions(typeof(Version), ApiHelper.ProductName); });
 
             app.UseHttpsRedirection();
             app.UseMvc();

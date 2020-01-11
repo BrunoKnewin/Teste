@@ -1,4 +1,5 @@
 ﻿using Knewin.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,15 +11,13 @@ namespace Knewin.Core.Services
     {
         Task<TEntity> GetByIdAsync(long id);
 
-        Task<TEntity> Insert(TEntity entity);
+        void Insert(TEntity entity);
 
         bool Insert(IEnumerable<TEntity> items);
 
         TEntity Update(TEntity entity);
 
         IEnumerable<TEntity> Update(IEnumerable<TEntity> entities);
-
-        Task<TEntity> Save(TEntity entity);
 
         void Delete(long id);
 

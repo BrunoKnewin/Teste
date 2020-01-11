@@ -2,9 +2,6 @@
 using Knewin.Infra.Data.Configurations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Knewin.Infra.Data.Contexts
 {
@@ -13,14 +10,14 @@ namespace Knewin.Infra.Data.Contexts
 
         public DbSet<City> City { get; set; }
 
-        public MovieContext(DbContextOptions<MovieContext> options)
+        public CityContext(DbContextOptions<CityContext> options)
             : base(options)
         {
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new FrontierConfiguration());
+            modelBuilder.ApplyConfiguration(new CityConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
