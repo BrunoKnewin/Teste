@@ -29,7 +29,7 @@ namespace Knewin.CityApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<CityViewModel>> All()
         {
-            return _mapper.Map<List<CityViewModel>>(_cityCrudService.GetPage(10, 0));
+            return _mapper.Map<List<CityViewModel>>(_cityCrudService.GetPage(int.MaxValue, 0));
         }
 
         // GET api/city/5
