@@ -3,6 +3,7 @@ using Knewin.CityApi.ViewModels.City;
 using Knewin.CityApi.ViewModels.Frontier;
 using Knewin.Domain.Entities;
 using Knewin.Infra.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 namespace Knewin.CityApi.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]"), ApiVersion("1")]
     public class CityController : Controller
     {
@@ -27,6 +29,7 @@ namespace Knewin.CityApi.Controllers
 
         // GET api/city
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult<IEnumerable<CityViewModel>> All()
         {
             return _mapper.Map<List<CityViewModel>>(_cityCrudService.GetPage(int.MaxValue, 0));
