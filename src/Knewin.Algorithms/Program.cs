@@ -8,12 +8,15 @@ namespace Knewin.Algorithms
         {
             while (true)
             {
+                
                 Console.WriteLine("Escolha qual algoritmo executar!");
                 Console.WriteLine("1 - Duplicado na lista.");
                 Console.WriteLine("2 - Palindromo.");
                 Console.WriteLine("3 - Fechar");
 
                 var key = Console.ReadLine();
+
+                Console.Clear();
 
                 switch (key)
                 {

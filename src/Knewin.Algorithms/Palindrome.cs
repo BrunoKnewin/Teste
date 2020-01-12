@@ -20,9 +20,9 @@ namespace Knewin.Algorithms
         public static bool IsPalidrome(string word)
         {
             int start = 0;
-            int end = word.Length - 1;
+            int end = (word.Length - 1);
 
-            while (start != end) {
+            while (start < end) {
                 if (word[start] != word[end])
                     return false;
 
