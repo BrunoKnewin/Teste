@@ -16,7 +16,7 @@ Authorization Bearer SEU_TOKEN
 
 **Comandos EF Tool**
 --------------
-Para rodas os comandos deve ser instalado a ferramenta ef tool na versão 3.0.0 [documentação](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet);
+Para rodar os comandos deve ser instalado a ferramenta ef tool na versão 3.0.0 [documentação](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet);
 Para rodar os comandos deve estar dentro do projeto Knewin.Infra
 
 **Excluir a base**
