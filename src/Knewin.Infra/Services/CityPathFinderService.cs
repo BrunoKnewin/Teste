@@ -74,6 +74,8 @@ namespace Knewin.Infra.Services
 
             RecursiveGetAllPaths(from, to, pathList);
 
+            if (!_trackedPaths.Any()) return null;
+
             var maybeTheSmallerPath = _trackedPaths.First();
 
             _trackedPaths.ForEach(x => {
