@@ -1,13 +1,9 @@
-﻿using AutoMapper;
-using Knewin.CityApi.ViewModels.Account;
-using Knewin.Domain.Entities;
-using Knewin.Infra.Services;
+﻿using Knewin.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using Knewin.Core.Extensions;
 using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
+using Knewin.CityApi.ViewModels;
+using Knewin.Infra.Services.Interfaces;
 
 namespace Knewin.CityApi.Controllers
 {
@@ -15,13 +11,9 @@ namespace Knewin.CityApi.Controllers
     [Route("api/[controller]"), ApiVersion("1")]
     public class AccountController : Controller
     {
-
-
-        private readonly IMapper _mapper;
-
         private readonly IAccountCrudService _accountService;
 
-        public AccountController(IMapper mapper, IAccountCrudService accountService)
+        public AccountController(IAccountCrudService accountService)
         {
             _accountService = accountService;
         }
@@ -54,9 +46,7 @@ namespace Knewin.CityApi.Controllers
         public ActionResult<string> Authenticate([FromBody] AccountViewModel viewModel)
         {
             if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+                return Unauthorized();
 
             var account = _accountService.Authenticate(viewModel.Email, viewModel.Password);
 

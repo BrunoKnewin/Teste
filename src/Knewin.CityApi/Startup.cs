@@ -3,11 +3,17 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Knewin.CityApi.Mappings;
 using Knewin.CityApi.Swagger.Filters;
+using Knewin.CityApi.Validators;
+using Knewin.CityApi.ViewModels;
 using Knewin.Infra.Data.Contexts;
 using Knewin.Infra.Repositories;
+using Knewin.Infra.Repositories.Interfaces;
 using Knewin.Infra.Services;
+using Knewin.Infra.Services.Interfaces;
 using Knewin.Swagger.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -36,11 +42,39 @@ namespace Knewin.CityApi
             var mappingConfig = new MapperConfiguration(mc => mc.AddProfile(new MappingProfile()));
             services.AddSingleton(mappingConfig.CreateMapper());
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc()
+                .AddFluentValidation(fv => { fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false; })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<CityContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CityContext")));
 
-            var jwtIssuerOptions = Configuration.GetSection("JwtIssuerOptions");
+            services.AddScoped(typeof(ICityRepository), typeof(CityRepository));
+            services.AddScoped(typeof(IAccountRepository), typeof(AccountRepository));
+
+            services.AddScoped<ICityCrudService, CityCrudService>();
+            services.AddScoped<IAccountCrudService, AccountCrudService>();
+
+            services.AddScoped<IValidator<CityViewModel>, CityValidator>();
+            services.AddScoped<IValidator<AccountViewModel>, AccountValidator>();
+
+            services.AddApiVersioning();
+            services.AddSwaggerGen(s =>
+            {
+                s.AddSwaggerGenOption(typeof(Version), ApiHelper.ProductName, ApiHelper.CompanyName);
+                s.DocInclusionPredicate((docName, apiDesc) =>
+                {
+                    if (!apiDesc.TryGetMethodInfo(out MethodInfo methodInfo)) return false;
+                    var versions = methodInfo.DeclaringType
+                        .GetCustomAttributes(true)
+                        .OfType<ApiVersionAttribute>()
+                        .SelectMany(attr => attr.Versions);
+
+                    return versions.Any(v => $"v{v.ToString()}" == docName);
+                });
+
+                s.OperationFilter<OperationFilter>();
+                s.DocumentFilter<DocumentFilter>();
+            });
 
             var key = Encoding.ASCII.GetBytes(Configuration.GetSection("JwtSecretKey").Value);
             services.AddAuthentication(x =>
@@ -73,31 +107,6 @@ namespace Knewin.CityApi
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
-            });
-
-            services.AddScoped(typeof(ICityRepository), typeof(CityRepository));
-            services.AddScoped(typeof(IAccountRepository), typeof(AccountRepository));
-
-            services.AddScoped<ICityCrudService, CityCrudService>();
-            services.AddScoped<IAccountCrudService, AccountCrudService>();
-
-            services.AddApiVersioning();
-            services.AddSwaggerGen(s =>
-            {
-                s.AddSwaggerGenOption(typeof(Version), ApiHelper.ProductName, ApiHelper.CompanyName);
-                s.DocInclusionPredicate((docName, apiDesc) =>
-                {
-                    if (!apiDesc.TryGetMethodInfo(out MethodInfo methodInfo)) return false;
-                    var versions = methodInfo.DeclaringType
-                        .GetCustomAttributes(true)
-                        .OfType<ApiVersionAttribute>()
-                        .SelectMany(attr => attr.Versions);
-
-                    return versions.Any(v => $"v{v.ToString()}" == docName);
-                });
-
-                s.OperationFilter<OperationFilter>();
-                s.DocumentFilter<DocumentFilter>();
             });
         }
 

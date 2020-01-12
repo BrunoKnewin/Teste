@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
-using Knewin.CityApi.ViewModels.City;
-using Knewin.CityApi.ViewModels.Frontier;
+using Knewin.CityApi.ViewModels;
 using Knewin.Domain.Entities;
-using Knewin.Infra.Services;
+using Knewin.Infra.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Knewin.CityApi.Controllers
@@ -46,14 +43,15 @@ namespace Knewin.CityApi.Controllers
         [HttpPost]
         public ActionResult<CityViewModel> Post([FromBody] CityViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var city = _mapper.Map<City>(viewModel);
 
-            try
-            {
-                city.Frontier = viewModel.Frontier;
-                _cityCrudService.Insert(city);
-            }
-            catch (Exception ex) { }
+            city.Frontier = viewModel.Frontier;
+            _cityCrudService.Insert(city);
 
             viewModel.Id = city.Id;
 
@@ -64,16 +62,18 @@ namespace Knewin.CityApi.Controllers
         [HttpPatch("{id}")]
         public ActionResult<CityViewModel> Patch(long id, [FromBody] CityViewModel viewModel)
         {
-            var city = _cityCrudService.Get(id);
-            try
+            if (!ModelState.IsValid)
             {
-                city.Name = viewModel.Name ?? city.Name;
-                city.Population = viewModel.Population ?? city.Population;
-                city.Frontier = viewModel.Frontier ?? city.Frontier;
-
-                _cityCrudService.Update(city);
+                return BadRequest(ModelState);
             }
-            catch (Exception ex) { }
+
+            var city = _cityCrudService.Get(id);
+
+            city.Name = viewModel.Name ?? city.Name;
+            city.Population = viewModel.Population ?? city.Population;
+            city.Frontier = viewModel.Frontier ?? city.Frontier;
+
+            _cityCrudService.Update(city);
 
             return _mapper.Map<CityViewModel>(city);
         }
@@ -82,25 +82,18 @@ namespace Knewin.CityApi.Controllers
         [HttpDelete("{id}")]
         public void Delete(long id)
         {
-            try
-            {
-                _cityCrudService.Delete(id);
-            }
-            catch (Exception ex) { }
+            _cityCrudService.Delete(id);
         }
 
-        // PUT api/city/5/frontier
+        //PUT api/city/5/frontier
         [HttpPut("{id}/frontier")]
         public ActionResult<CityViewModel> PutFrontier(long id, [FromBody] long[] frontier)
         {
             var city = _cityCrudService.Get(id);
-            try
-            {
-                city.Frontier = frontier.Select(x => x.ToString()).ToArray();
 
-                _cityCrudService.Update(city);
-            }
-            catch (Exception ex) { }
+            city.Frontier = frontier;
+
+            _cityCrudService.Update(city);
 
             return _mapper.Map<CityViewModel>(city);
         }
@@ -110,7 +103,8 @@ namespace Knewin.CityApi.Controllers
         public ActionResult<List<FrontierViewModel>> GetFrontier(long id)
         {
             var city = _cityCrudService.Get(id);
-            var frontier = _cityCrudService.GetAllById(city.Frontier.Select(x => long.Parse(x)).ToArray());
+
+            var frontier = _cityCrudService.GetAllById(city.Frontier);
 
             return _mapper.Map<List<FrontierViewModel>>(frontier);
         }

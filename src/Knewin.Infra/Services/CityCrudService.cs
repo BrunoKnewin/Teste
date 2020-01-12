@@ -1,6 +1,7 @@
 ﻿using Knewin.Core.Services;
 using Knewin.Domain.Entities;
-using Knewin.Infra.Repositories;
+using Knewin.Infra.Repositories.Interfaces;
+using Knewin.Infra.Services.Interfaces;
 using System;
 using System.Linq;
 
@@ -21,5 +22,15 @@ namespace Knewin.Infra.Services
 
         public int SumPopulationFromCities(long[] ids)
             => _cityRepository.GetAll().Where(x => ids.Contains(x.Id)).Sum(x => x.Population);
+
+        public bool AllCitiesExists(long[] ids)
+        {
+            if (ids != null && ids.Any())
+            {
+                return _cityRepository.GetAll().Where(x => ids.Contains(x.Id)).Count() == ids.Length;
+            }
+
+            return true;
+        }
     }
 }

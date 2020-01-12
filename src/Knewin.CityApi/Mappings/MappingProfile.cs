@@ -1,9 +1,6 @@
-﻿using Knewin.CityApi.ViewModels.City;
-using Knewin.Domain.Entities;
+﻿using Knewin.Domain.Entities;
 using AutoMapper;
-using Knewin.CityApi.ViewModels.Frontier;
-using System.Linq;
-using Knewin.CityApi.ViewModels.Account;
+using Knewin.CityApi.ViewModels;
 
 namespace Knewin.CityApi.Mappings
 {

@@ -1,7 +1,8 @@
 ﻿using Knewin.Core.Extensions;
 using Knewin.Core.Services;
 using Knewin.Domain.Entities;
-using Knewin.Infra.Repositories;
+using Knewin.Infra.Repositories.Interfaces;
+using Knewin.Infra.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;

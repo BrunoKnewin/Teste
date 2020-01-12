@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Knewin.CityApi.ViewModels.City
+namespace Knewin.CityApi.ViewModels
 {
     public class CityViewModel
     {
@@ -11,6 +11,6 @@ namespace Knewin.CityApi.ViewModels.City
 
         public int? Population { get; set; }
 
-        public string[] Frontier { get; set; }
+        public long[] Frontier { get; set; }
     }
 }

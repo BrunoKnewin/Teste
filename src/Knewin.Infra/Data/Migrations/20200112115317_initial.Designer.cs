@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Knewin.Infra.Data.Migrations
 {
     [DbContext(typeof(CityContext))]
-    [Migration("20200111201052_initial")]
+    [Migration("20200112115317_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Knewin.CityApi.ViewModels.Frontier
+﻿namespace Knewin.CityApi.ViewModels
 {
     public class FrontierViewModel
     {

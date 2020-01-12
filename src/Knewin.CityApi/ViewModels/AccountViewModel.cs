@@ -1,4 +1,4 @@
-﻿namespace Knewin.CityApi.ViewModels.Account
+﻿namespace Knewin.CityApi.ViewModels
 {
     public class AccountViewModel
     {
