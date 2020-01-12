@@ -32,5 +32,8 @@ namespace Knewin.Infra.Services
 
             return true;
         }
+
+        public int CountTotalCities()
+            => _cityRepository.GetAll().Count();
     }
 }

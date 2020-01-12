@@ -15,7 +15,8 @@ namespace Knewin.CityApi.Validators
 
             RuleFor(e => e.Frontier)
                 .NotNull()
-                .Must(cityCrudService.AllCitiesExists);
+                .Must(cityCrudService.AllCitiesExists)
+                .WithMessage("All frontier cities must be a valid city previously created.");
         }
     }
 }

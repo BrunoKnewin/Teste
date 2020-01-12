@@ -18,10 +18,13 @@ namespace Knewin.CityApi.Controllers
 
         private readonly ICityCrudService _cityCrudService;
 
-        public CityController(IMapper mapper, ICityCrudService cityCrudService)
+        private readonly ICityPathFinderService _cityPathFinderService;
+
+        public CityController(IMapper mapper, ICityCrudService cityCrudService, ICityPathFinderService cityPathFinderService)
         {
             _mapper = mapper;
             _cityCrudService = cityCrudService;
+            _cityPathFinderService = cityPathFinderService;
         }
 
         // GET api/city
@@ -85,19 +88,6 @@ namespace Knewin.CityApi.Controllers
             _cityCrudService.Delete(id);
         }
 
-        //PUT api/city/5/frontier
-        [HttpPut("{id}/frontier")]
-        public ActionResult<CityViewModel> PutFrontier(long id, [FromBody] long[] frontier)
-        {
-            var city = _cityCrudService.Get(id);
-
-            city.Frontier = frontier;
-
-            _cityCrudService.Update(city);
-
-            return _mapper.Map<CityViewModel>(city);
-        }
-
         // GET api/city/5/frontier
         [HttpGet("{id}/frontier")]
         public ActionResult<List<FrontierViewModel>> GetFrontier(long id)
@@ -114,6 +104,13 @@ namespace Knewin.CityApi.Controllers
         public ActionResult<int> Population(long[] ids)
         {
             return _cityCrudService.SumPopulationFromCities(ids);
+        }
+
+        // GET api/city/path/1/2
+        [HttpGet("path/{from}/{to}")]
+        public ActionResult<long[]> Path(long from, long to)
+        {
+            return _cityPathFinderService.GetOnePath(from, to);
         }
     }
 }

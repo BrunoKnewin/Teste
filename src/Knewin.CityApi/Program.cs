@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore;
+﻿using Knewin.CityApi.Extensions;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Knewin.CityApi
@@ -7,7 +8,10 @@ namespace Knewin.CityApi
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            CreateWebHostBuilder(args)
+                .Build()
+                .SeedData()
+                .Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

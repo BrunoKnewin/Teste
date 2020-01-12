@@ -53,6 +53,7 @@ namespace Knewin.CityApi
 
             services.AddScoped<ICityCrudService, CityCrudService>();
             services.AddScoped<IAccountCrudService, AccountCrudService>();
+            services.AddScoped<ICityPathFinderService, CityPathFinderService>();
 
             services.AddScoped<IValidator<CityViewModel>, CityValidator>();
             services.AddScoped<IValidator<AccountViewModel>, AccountValidator>();

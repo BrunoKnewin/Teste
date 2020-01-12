@@ -9,5 +9,7 @@ namespace Knewin.Infra.Services.Interfaces
         int SumPopulationFromCities(long[] ids);
 
         bool AllCitiesExists(long[] ids);
+
+        int CountTotalCities();
     }
 }
