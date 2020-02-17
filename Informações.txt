@@ -1,0 +1,37 @@
+/api/cidade/PopularBanco
+
+Método para cadastrar algumas cidades no banco
+
+/api/cidade/GetAll -- Não precisa estar autenticado
+
+Método para retornar todas as cidades cadastradas
+
+/api/cidade/GetByNome
+
+Método para buscar uma cidade por nome
+
+/api/cidade/FazemFonteirasCom
+
+Método para buscar quais cidades fazem fronteira com a cidade especificada
+
+/api/cidade/Save
+
+Método para cadastrar uma cidade
+
+/api/cidade/Save
+
+Método para alterar as informações de uma cidade
+
+/api/cidade/CalcularPopulacao
+
+Método para calcular a quantidade da populaçao das cidades informadas
+
+Métodos de usuário
+
+/api/User/Login
+
+Método para efetuar login
+
+/api/User/Cadastrar
+
+Método para cadastrar uma conta
