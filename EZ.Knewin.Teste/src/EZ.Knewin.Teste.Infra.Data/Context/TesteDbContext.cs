@@ -16,7 +16,6 @@ namespace EZ.Knewin.Teste.Infra.Data.Context
 
         public DbSet<Cidade> Cidades { get; set; }
         public DbSet<Estado> Estados { get; set; }
-        public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -57,40 +56,8 @@ namespace EZ.Knewin.Teste.Infra.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            //modelBuilder.Entity<Fronteira>()
-            //    .HasKey(cc => new { cc.CidadeId, cc.CidadeFronteiraId });
-
-            //modelBuilder.Entity<Fronteira>()
-            //    .HasOne(cc => cc.Cidade);
-
-            //modelBuilder.Entity<Fronteira>()
-            //    .HasOne(cc => cc.CidadeFronteira);
-
-            //modelBuilder.Entity<Cidade>()
-            //            .HasMany(x => x.Fronteiras)
-            //            .WithOne(x => x.CidadeFronteira)
-            //            .HasForeignKey(x => x.CidadeFronteiraId)
-            //            .OnDelete(DeleteBehavior.Restrict);
-
             modelBuilder.Entity<Cidade>()
                         .HasOne(x => x.Estado);
-
-            //modelBuilder.ApplyConfiguration(new LoginMapping());
-
-        }
-
-        private void ConfigurarCidade(ModelBuilder modelBuilder)
-        {
-        }
-
-        private void ConfigurarEstado(ModelBuilder modelBuilder)
-        {
-
-        }
-
-        private void ConfigurarUser(ModelBuilder modelBuilder)
-        {
 
         }
     }

@@ -73,29 +73,6 @@ namespace EZ.Knewin.Teste.Infra.Data.Migrations
                     b.ToTable("Estados");
                 });
 
-            modelBuilder.Entity("EZ.Knewin.Teste.Domain.Entities.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
             modelBuilder.Entity("EZ.Knewin.Teste.Domain.Entities.Cidade", b =>
                 {
                     b.HasOne("EZ.Knewin.Teste.Domain.Entities.Estado", "Estado")

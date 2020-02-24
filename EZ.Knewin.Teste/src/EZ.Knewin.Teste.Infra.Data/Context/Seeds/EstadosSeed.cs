@@ -1,5 +1,4 @@
-﻿using EZ.Knewin.Teste.Domain.Entities;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EZ.Knewin.Teste.Infra.Data.Context.Seeds
 {

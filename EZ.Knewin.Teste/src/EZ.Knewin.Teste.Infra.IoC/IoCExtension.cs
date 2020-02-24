@@ -15,7 +15,7 @@ namespace EZ.Knewin.Teste.Infra.IoC
             services.AddDbContext<TesteDbContext>(options => options.UseSqlServer(configuration["ConnectionStrings:KnewinTeste"]));
 
             services.AddScoped<ICidadeRepository, CidadeRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IEstadoRepository, EstadoRepository>();
         }
     }

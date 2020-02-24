@@ -17,11 +17,11 @@ namespace EZ.Knewin.Teste.Api.Extensions
             services.AddScoped(typeof(IBuscadorDeEstado), typeof(BuscadorDeEstado));
             services.AddScoped(typeof(IBuscadorDeCidade), typeof(BuscadorDeCidade));
             services.AddScoped(typeof(IAtualizadorDeCidade), typeof(AtualizadorDeCidade));
+            services.AddScoped(typeof(IBuscadorDeUsuario), typeof(BuscadorDeUsuario));
 
             var config = new AutoMapper.MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<CidadeDto, Cidade>();
-                    //.ForMember(c => c.FronteirasIds, dt => dt.MapFrom(m => JsonConvert.SerializeObject(m.FronteirasIds)));
                 cfg.CreateMap<EstadoDto, Estado>();
                 cfg.CreateMap<Cidade, CidadeDto>()
                     .ForMember(c => c.FronteirasIds, dt => dt.MapFrom(m => JsonConvert.DeserializeObject<int[]>(m.FronteirasIds)));

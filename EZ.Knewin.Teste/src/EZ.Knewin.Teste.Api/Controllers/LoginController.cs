@@ -1,8 +1,6 @@
-﻿using EZ.Knewin.Teste.Domain.Entities;
-using EZ.Knewin.Teste.Service.Config;
-using Microsoft.AspNetCore.Authorization;
+﻿using EZ.Knewin.Teste.Service.Dtos;
+using EZ.Knewin.Teste.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace EZ.Knewin.Teste.Api.Controllers
@@ -13,27 +11,14 @@ namespace EZ.Knewin.Teste.Api.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody] User model)
+        public async Task<ActionResult<UsuarioDto>> Authenticate([FromServices] IBuscadorDeUsuario buscadorDeUsuario, [FromBody] LoginDto login)
         {
-            // Recupera o usuário
-            var user = new User("admin", "admin", "manager"); // UserRepository.Get(model.Username, model.Password);
+            var usuario = await buscadorDeUsuario.ObterUsuarioPorCredenciais(login.NomeDoUsuario, login.Senha);
 
-            // Verifica se o usuário existe
-            if (user == null)
+            if (usuario == null)
                 return NotFound(new { message = "Usuário ou senha inválidos" });
 
-            // Gera o Token
-            var token = TokenService.GenerateToken(user);
-
-            // Oculta a senha
-            user.AlterarPassword("");
-
-            // Retorna os dados
-            return new
-            {
-                user = user,
-                token = token
-            };
+            return Ok(usuario);
         }
     }
 }

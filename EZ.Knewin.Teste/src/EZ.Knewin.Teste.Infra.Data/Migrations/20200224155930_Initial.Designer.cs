@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EZ.Knewin.Teste.Infra.Data.Migrations
 {
     [DbContext(typeof(TesteDbContext))]
-    [Migration("20200224064212_Initial")]
+    [Migration("20200224155930_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,9 @@ namespace EZ.Knewin.Teste.Infra.Data.Migrations
                     b.Property<int>("EstadoId")
                         .HasColumnType("int");
 
+                    b.Property<string>("FronteirasIds")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(150)")
@@ -50,21 +53,6 @@ namespace EZ.Knewin.Teste.Infra.Data.Migrations
                     b.HasIndex("EstadoId");
 
                     b.ToTable("Cidades");
-                });
-
-            modelBuilder.Entity("EZ.Knewin.Teste.Domain.Entities.CidadeCidade", b =>
-                {
-                    b.Property<int>("CidadePaiId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CidadeFronteiraId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CidadePaiId", "CidadeFronteiraId");
-
-                    b.HasIndex("CidadeFronteiraId");
-
-                    b.ToTable("CidadeCidades");
                 });
 
             modelBuilder.Entity("EZ.Knewin.Teste.Domain.Entities.Estado", b =>
@@ -87,50 +75,12 @@ namespace EZ.Knewin.Teste.Infra.Data.Migrations
                     b.ToTable("Estados");
                 });
 
-            modelBuilder.Entity("EZ.Knewin.Teste.Domain.Entities.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
             modelBuilder.Entity("EZ.Knewin.Teste.Domain.Entities.Cidade", b =>
                 {
                     b.HasOne("EZ.Knewin.Teste.Domain.Entities.Estado", "Estado")
                         .WithMany()
                         .HasForeignKey("EstadoId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("EZ.Knewin.Teste.Domain.Entities.CidadeCidade", b =>
-                {
-                    b.HasOne("EZ.Knewin.Teste.Domain.Entities.Cidade", "CidadeFronteira")
-                        .WithMany("Fronteiras")
-                        .HasForeignKey("CidadeFronteiraId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("EZ.Knewin.Teste.Domain.Entities.Cidade", "CidadePai")
-                        .WithMany("CidadePai")
-                        .HasForeignKey("CidadePaiId")
-                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618
