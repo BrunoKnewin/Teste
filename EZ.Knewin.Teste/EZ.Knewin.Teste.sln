@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.Knewin.Teste.Domain", "src\EZ.Knewin.Teste.Domain\EZ.Knewin.Teste.Domain.csproj", "{0C3E721C-0830-484E-A6B0-7A8C90550685}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.Knewin.Teste.Infra.Data", "src\EZ.Knewin.Teste.Infra.Data\EZ.Knewin.Teste.Infra.Data.csproj", "{FF61E890-7EC4-478C-9022-B8E1CDF1794D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.Knewin.Teste.Service", "src\EZ.Knewin.Teste.Service\EZ.Knewin.Teste.Service.csproj", "{EF8396C3-C2B2-4775-848B-9253012F53EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.Knewin.Teste.Api", "src\EZ.Knewin.Teste.Api\EZ.Knewin.Teste.Api.csproj", "{F9DA929F-7492-49B8-B9BC-C1463A3275BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.Knewin.Teste.Infra.IoC", "src\EZ.Knewin.Teste.Infra.IoC\EZ.Knewin.Teste.Infra.IoC.csproj", "{9B2F3F05-FF3B-41F6-9A42-0E2087425F53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.Knewin.Teste.Algoritmos", "EZ.Knewin.Teste.Algoritmos\EZ.Knewin.Teste.Algoritmos.csproj", "{AF980A10-20EB-4E50-AA0E-57D35944DD19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C3E721C-0830-484E-A6B0-7A8C90550685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C3E721C-0830-484E-A6B0-7A8C90550685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C3E721C-0830-484E-A6B0-7A8C90550685}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C3E721C-0830-484E-A6B0-7A8C90550685}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF61E890-7EC4-478C-9022-B8E1CDF1794D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF61E890-7EC4-478C-9022-B8E1CDF1794D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF61E890-7EC4-478C-9022-B8E1CDF1794D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF61E890-7EC4-478C-9022-B8E1CDF1794D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF8396C3-C2B2-4775-848B-9253012F53EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF8396C3-C2B2-4775-848B-9253012F53EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF8396C3-C2B2-4775-848B-9253012F53EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF8396C3-C2B2-4775-848B-9253012F53EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9DA929F-7492-49B8-B9BC-C1463A3275BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9DA929F-7492-49B8-B9BC-C1463A3275BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9DA929F-7492-49B8-B9BC-C1463A3275BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9DA929F-7492-49B8-B9BC-C1463A3275BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B2F3F05-FF3B-41F6-9A42-0E2087425F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2F3F05-FF3B-41F6-9A42-0E2087425F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2F3F05-FF3B-41F6-9A42-0E2087425F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2F3F05-FF3B-41F6-9A42-0E2087425F53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF980A10-20EB-4E50-AA0E-57D35944DD19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF980A10-20EB-4E50-AA0E-57D35944DD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF980A10-20EB-4E50-AA0E-57D35944DD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF980A10-20EB-4E50-AA0E-57D35944DD19}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84226942-8034-4B2F-8EA7-0F6CB53417D8}
+	EndGlobalSection
+EndGlobal
