@@ -72,8 +72,9 @@ namespace cidades.Controllers
         [HttpGet("{id:int}/limits")]
         public IActionResult Limits(int id)
         {
-            //todo get city
-            City city = new City(){Id = id};
+            City city = _service.Get(id);
+            if(city==null)
+                return NotFound();
             string neighborNames = string.Join(',',city.Neighbors.Select(c => c.Name).ToList());
             return Ok(new { City = city.Name, Neighbors = neighborNames });
         }

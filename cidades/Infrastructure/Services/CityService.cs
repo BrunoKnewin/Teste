@@ -25,6 +25,8 @@ namespace cidades.Infrastructure.Services
             return _dbContext.Cities
                 .Include(c => c.CityRoutes)
                 .ThenInclude(cr => cr.CityTo)
+                .Include(c => c.CityRoutesFrom)
+                .ThenInclude(cr => cr.City)
                 .FirstOrDefault(c => c.Id == id);
         }
 
@@ -36,8 +38,8 @@ namespace cidades.Infrastructure.Services
                 cityDb.Name = city.Name;
             if(city.Population > 0)
                 cityDb.Population = city.Population;
-            if(city.CityRoutes.Count > 0)
-                cityDb.CityRoutes = city.CityRoutes;
+            if(!string.IsNullOrEmpty(city.CountryState))
+                cityDb.CountryState = city.CountryState;
             _dbContext.Cities.Update(cityDb);
             _dbContext.SaveChanges();
         }

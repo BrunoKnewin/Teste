@@ -17,7 +17,12 @@ namespace cidades.Model
         {
             get
             {
-                return CityRoutes.Select(r => r.CityTo).ToList();
+                var listTo = CityRoutes.Select(r => r.CityTo).ToList();
+                var listFrom = CityRoutesFrom.Select(r => r.City)
+                    .Where(c => !listTo.Contains(c))
+                    .ToList();
+                listTo.AddRange(listFrom);
+                return listTo;
             }
         }
 
