@@ -11,7 +11,7 @@
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/duplicados/bin/Debug/netcoreapp3.1/duplicados.dll",
-            "args": [],
+            "args": ["002,12,4,97866,1234,9,35,3456,12,3"],
             "cwd": "${workspaceFolder}/duplicados",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",

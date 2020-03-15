@@ -62,7 +62,7 @@ namespace duplicados
             {
                 return (false,"Separador não encontrado na lista!");
             }
-            if(!Regex.IsMatch(numbers,@$"^(\d+)({separator}\d+)*"))
+            if(!Regex.IsMatch(numbers,$@"^(\d+)({separator}\d+)*"))
             {
                 return (false,"Lista inválida!");
             }
