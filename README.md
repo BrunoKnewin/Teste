@@ -1,80 +1,285 @@
-**Bem Vindo!**
-# 
-Este documento README tem como objetivo fornecer as informações necessárias para realização do exame.
+#**Teste - Eduardo MPS** 
  
- 
-` Objetivo: `
- 
-- Solução de alguns algoritmos propostos e a construção de uma API.
-- Você deve realizar um fork deste repositório e ao finalizar submeter um pull request com a solução ou nos enviar um link do seu repositório.
-- Nós avaliaremos o que foi feito e entraremos em contato para dar um parecer.
- 
- 
-`O que será avaliado?`
-  
-  - A principal ideia do teste é medir sua capacidade lógica e conhecimento na linguagem e seus frameworks
-  - Qualidade do seu código
-  - Sua capacidade de deixar o projeto organizado
-  - Capacidade de tomar decisões
- 
-`Informações Importantes: `
- 
-- Independente de onde chegou no teste, nos envie para analisarmos, ninguém precisa ser perfeito!
-- Não se esqueça de enviar um script para carga inicial dos dados no banco ou planejar a carga inicial programaticamente.
-- Vamos executar sua API e verificar as requests com o postman =)
- 
-`Seu arquivo Readme.md deve conter: `
- 
-- Informação de como executar o seu código, descrevendo as rotas que criou e seus contratos.
-- Instruções para executar os testes ( preferencialmente queremos fazer isto via linha de comando )
-- Os algoritmos estarão na pasta Algoritmos, você é livre para entregá-los na estrutura que desejar. ( incluso no projeto, somente um arquivo de texto, uma classe, um console application, fique a vontade )
- 
-#
-**Algoritmos:**
-#
-`Duplicados na lista`
- 
+##Algoritmos:
+
+**'Duplicados na lista'**
+
+- Gerada console application "duplicados" em .Net core 3.1
+- como executar compilado:
 ```
-Este algoritmo deve receber como parâmetro um vetor contendo uma sequência de números inteiros
-e retornar o índice do primeiro item duplicado.
+dotnet duplicados.dll <lista de inteiros separados por vírgula>
+```
+Exemplo:
+```
+$ dotnet duplicados.dll 002,12,4,97866,1234,9,35,3456,12,3
+  Duplicado encontrado! 
+  número: 12, índices: 1,8
+```
+---
+
+**'Palíndromo'**
+ 
+- Gerada console application "palindromos" em .Net core 3.1
+- como executar compilado:
+```
+dotnet palindromos.dll "<frase ou palavra>"
+```
+Exemplo:
+```
+$ dotnet palindromos.dll "A Rita, sobre vovô, verbos atira"
+CONSIDERANDO espaços e diacríticos: 
+'A Rita, sobre vovô, verbos atira' não é palíndromo.
+IGNORANDO espaços e diacríticos: 
+'A Rita, sobre vovô, verbos atira' é palíndromo!
+```
+ 
+## API Cidades:
+
+- Gerada WebAPI em .Net core 3.1 
+- Criado, para facilitar, com base SQLite, já incluída no repositório
+- Com autenticação
+  - método que recebe JSON com username/password e retorna JWT
+  - JWT usado como Bearer Token nos demais métodos, exceto método de listar todas
+
+Considerando ***{URLBase}*** = https://localhost:5001/api
+
+### Métodos
+
+#### Login
+**POST** *{URLBase}*/user/authenticate
 
 ```
-#
-`Palindromo`
- 
+curl --request POST \
+  --url https://localhost:5001/api/user/authenticate \
+  --header 'content-type: application/json' \
+  --data '{
+	"Username":"eduardo",
+	"Password":"teste"
+}'
 ```
-Definição: Um palindromo é um string que pode ser lida da mesma forma de trás para frente. Por exemplo, "abcba" ou "arara" é um palindromo.
+**Retorno**:
+```
+{
+  "id": 1,
+  "username": "eduardo",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1ODQzMDg1NzgsImV4cCI6MTU4NDMxNTc3OCwiaWF0IjoxNTg0MzA4NTc4fQ.aa_PP57NRXXV5fPE-DL8UOOw1z-WY7GHElWeFnAZo9E"
+}
+```
 
-o que é Palindromo? -> https://pt.wikipedia.org/wiki/Pal%C3%ADndromo
- 
-Faça um método que deve receber uma string como parâmetro e retornar um bool informando se é palíndromo ou não.
+***Obs.:*** dois usuários hardcoded, o do exemplo e "eduardo"/"teste"
+
+#### Listar cidades
+**GET** *{URLBase}*/city/
+
 ```
- 
-#
-**Agora você deve contruir uma API que contenha: (pode usar net core ou clássico ) **
+curl --request GET \
+  --url https://localhost:5001/api/city/
 ```
-- Uma funcionalidade para fazer login.
-- Uma funcionalidade para cadastrar novas cidades:
-  - As cidades devem contar no mínimo com:
-    - Um nome e uma estrutura que diga com quem ela faz fronteira
-    - Ex: 
-      - {"Nome": "A", "Fronteira": ["B", "E"]}
-      - {"Nome": "São José", "Fronteira": ["Florianópolis", "Palhoça"]}
-- Um meio para retornar todas as cidades já cadastradas ( essa não precisa estar autenticado )
-- Um meio para procurar uma cidade especifica
-- Um meio que retorne as cidades que fazem fronteira com uma cidade específica
-  - Ex: Quem faz fronteira com a Cidade B?
-- Retornar a soma dos habitantes de um conjunto de cidades
-  - Ex: cidade A,B,C possuem 50 mil habitantes
-- Um método pra eu poder atualizar os dados de uma cidade, por exemplo mudar a quantidade de habitantes.
-- O caminho que devo fazer de uma cidade a outra
-  - Ex: sair de cidade Buenos aires e ir até a cidade Florianópolis
+**Retorno**:
 ```
- 
- 
- 
-`Lembre-se Avaliaremos o que for entregue, mesmo que incompleto`
- 
-**Boa sorte !!**
- 
-![alt](https://ajsoifer.files.wordpress.com/2014/04/keep-calm-and-don-t-feed-the-troll-48.png)
+[
+  {
+    "id": 1,
+    "name": "Florianopolis",
+    "population": 500000,
+    "countryState": "SC",
+    "cityRoutes": [],
+    "cityRoutesFrom": [],
+    "neighbors": []
+  },
+
+  ...
+
+  {
+    "id": 13,
+    "name": "Canelinha",
+    "population": 12000,
+    "countryState": "SC",
+    "cityRoutes": [],
+    "cityRoutesFrom": [],
+    "neighbors": []
+  }
+]
+```
+***Obs.:***
+1) único método permitido sem autenticação 
+2) este método não retorna as cidades vizinhas, intencionalmente
+
+#### Buscar Cidade
+**GET** *{URLBase}*/city/{id}
+
+```
+curl --request GET \
+  --url https://localhost:5001/api/city/1 \
+  --header 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1ODQzMDc5MDcsImV4cCI6MTU4NDMxNTEwNywiaWF0IjoxNTg0MzA3OTA3fQ.Hml_DakcrvnpS3XVz-pdnIcvo0BUaQSekEg6iHrtCjY'
+```
+**Retorno**:
+Caso não encontre pelo id, retorna 404;
+Caso contrário:
+```
+{
+  "id": 1,
+  "name": "Florianopolis",
+  "population": 500000,
+  "countryState": "SC",
+  "cityRoutes": [
+    {
+      "idCity": 1,
+      "idCityTo": 2,
+      "cityTo": {
+        "id": 2,
+        "name": "Sao Jose",
+        "population": 243000,
+        "countryState": null,
+        "cityRoutes": [],
+        "cityRoutesFrom": [],
+        "neighbors": []
+      }
+    }
+  ],
+  "cityRoutesFrom": [],
+  "neighbors": [
+    {
+      "id": 2,
+      "name": "Sao Jose",
+      "population": 243000,
+      "countryState": null,
+      "cityRoutes": [],
+      "cityRoutesFrom": [
+        {
+          "idCity": 1,
+          "idCityTo": 2
+        }
+      ],
+      "neighbors": []
+    }
+  ]
+}
+```
+
+#### Criar Cidade
+**POST** *{URLBase}*/city/create
+
+```
+curl --request POST \
+  --url https://localhost:5001/api/city/create \
+  --header 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1ODQzMDc5MDcsImV4cCI6MTU4NDMxNTEwNywiaWF0IjoxNTg0MzA3OTA3fQ.Hml_DakcrvnpS3XVz-pdnIcvo0BUaQSekEg6iHrtCjY' \
+  --header 'content-type: application/json' \
+  --data '{
+    "name": "Canelinha",
+    "population": 12000,
+    "countryState": "SC"
+  }'
+```
+**Retorno:**
+Em caso de sucesso,status 201, Created At redirecionando para o método anterior:
+```
+{
+  "id": 1,
+  "name": "Florianopolis",
+  "population": 500000,
+  "countryState": "SC",
+  "cityRoutes": [
+    {
+      "idCity": 1,
+      "idCityTo": 2,
+      "cityTo": {
+        "id": 2,
+        "name": "Sao Jose",
+        "population": 243000,
+        "countryState": null,
+        "cityRoutes": [],
+        "cityRoutesFrom": [],
+        "neighbors": []
+      }
+    }
+  ],
+  "cityRoutesFrom": [],
+  "neighbors": [
+    {
+      "id": 2,
+      "name": "Sao Jose",
+      "population": 243000,
+      "countryState": null,
+      "cityRoutes": [],
+      "cityRoutesFrom": [
+        {
+          "idCity": 1,
+          "idCityTo": 2
+        }
+      ],
+      "neighbors": []
+    }
+  ]
+}
+```
+
+#### Cidades limítrofes
+**GET** *{URLBase}*/city/{id}/limits
+```
+curl --request GET \
+  --url https://localhost:5001/api/city/5/limits \
+  --header 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1ODQzMDc5MDcsImV4cCI6MTU4NDMxNTEwNywiaWF0IjoxNTg0MzA3OTA3fQ.Hml_DakcrvnpS3XVz-pdnIcvo0BUaQSekEg6iHrtCjY'
+```
+**Retorno:**
+Caso não encontre pelo id, retorna 404;
+Caso contrário:
+```
+{
+  "city": "Palhoca",
+  "neighbors": "Santo Amaro da Imperatriz,Sao Pedro de Alcantara,Sao Jose"
+}
+```
+
+#### Soma de Habitantes
+**GET** *{URLBase}*/city/population/{idsCSV}
+```
+curl --request GET \
+  --url 'https://localhost:5001/api/city/population/1,2,4' \
+  --header 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1ODQzMDc5MDcsImV4cCI6MTU4NDMxNTEwNywiaWF0IjoxNTg0MzA3OTA3fQ.Hml_DakcrvnpS3XVz-pdnIcvo0BUaQSekEg6iHrtCjY'
+```
+
+**Retorno:**
+
+```
+{
+  "cities": "Florianopolis,Sao Jose,Biguacu",
+  "totalPopulation": 812000
+}
+```
+
+#### Atualizar Cidade
+**POST** *{URLBase}*/city/{id}/update
+
+```
+curl --request POST \
+  --url https://localhost:5001/api/city/13/update \
+  --header 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1ODQzMDc5MDcsImV4cCI6MTU4NDMxNTEwNywiaWF0IjoxNTg0MzA3OTA3fQ.Hml_DakcrvnpS3XVz-pdnIcvo0BUaQSekEg6iHrtCjY' \
+  --header 'content-type: application/json' \
+  --data '{
+    "name": "Canelinha",
+    "population": 12000,
+    "countryState": "SC"
+}'
+```
+**Retorno:**
+Caso não encontre pelo id, status 404
+Caso contrário, status 204 (NoContent)
+
+#### Caminho Entre Cidades
+**GET** *{URLBase}*/city/findpath/{idCityFrom}/{idCityTo}
+```
+curl --request GET \
+  --url https://localhost:5001/api/city/findpath/10/6 \
+  --header 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1ODQzMDc5MDcsImV4cCI6MTU4NDMxNTEwNywiaWF0IjoxNTg0MzA3OTA3fQ.Hml_DakcrvnpS3XVz-pdnIcvo0BUaQSekEg6iHrtCjY'
+```
+**Retorno:**
+Caso não encontre início ou destino pelo id, status 404
+Caso contrário
+```
+{
+  "start": "Sao Joao Batista",
+  "end": "Santo Amaro da Imperatriz",
+  "path": "Sao Joao Batista,Antonio Carlos,Sao Pedro de Alcantara,Santo Amaro da Imperatriz"
+}
+```
