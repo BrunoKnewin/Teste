@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using cidades.Infrastructure.Services;
 using cidades.Model;
 using Microsoft.AspNetCore.Authorization;
@@ -11,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace cidades.Controllers
 {
     
-    [ApiController, Route("api/[controller]"), AllowAnonymous]//, Authorize]
+    [ApiController, Route("api/[controller]"), Authorize]
     public class CityController : ControllerBase
     {
         private readonly ILogger<CityController> _logger;
@@ -23,7 +21,7 @@ namespace cidades.Controllers
             _service = service;
         }
 
-        [HttpGet]//, AllowAnonymous]
+        [HttpGet, AllowAnonymous]
         public IActionResult List()
         {
             var cities = _service.List();

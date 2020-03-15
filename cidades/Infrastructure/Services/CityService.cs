@@ -46,7 +46,9 @@ namespace cidades.Infrastructure.Services
 
         internal List<City> List()
         {
-            return _dbContext.Cities.ToList();
+            return _dbContext.Cities
+                // sem os Include pois o retorno do List ficaria com vários MB!
+                .ToList();
         }
 
         internal City Find(string name, string countryState)

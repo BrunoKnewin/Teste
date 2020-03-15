@@ -10,9 +10,11 @@ namespace cidades.Model
         public string Name {get;set;}
         public int Population {get;set;}
         public string CountryState {get;set;} 
+        [JsonIgnore]
         public List<CityToCity> CityRoutes {get;set;} = new List<CityToCity>();
         [JsonIgnore]
         public List<CityToCity> CityRoutesFrom {get;set;} = new List<CityToCity>();
+        
         public List<City> Neighbors
         {
             get

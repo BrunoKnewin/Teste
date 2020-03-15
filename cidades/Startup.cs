@@ -35,6 +35,7 @@ namespace cidades
             );
             services.AddScoped<CityService>();
             services.AddCustomAuth(Configuration);
+            services.AddScoped<UserService>();
             services.AddControllers()
                 .AddNewtonsoftJson(options =>
                     //evitando  referencias circulares com Json.NET...
@@ -49,15 +50,10 @@ namespace cidades
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
-            app.UseAuthorization();
-
             app.UseAuthentication();
-
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
