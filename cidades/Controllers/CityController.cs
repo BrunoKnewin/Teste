@@ -82,10 +82,14 @@ namespace cidades.Controllers
         [HttpGet("findpath/{idFrom:int}/{idTo:int}")]
         public IActionResult FindPath(int idFrom, int idTo)
         {
-            //todo get path
-            List<City> path = new List<City>();
-            string pathCityNames = string.Join(',',path.Select(c => c.Name).ToList());
-            return Ok(new { Path = pathCityNames });
+            City city = _service.Get(idFrom);
+            City cityTo = _service.Get(idTo);
+            if(city == null || cityTo == null)
+                return NotFound();
+            
+            string pathCityNames = _service.FindPath(city, cityTo);
+            
+            return Ok(new { Start = city.Name, End = cityTo.Name, Path = pathCityNames });
         }
     }
 }

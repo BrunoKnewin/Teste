@@ -62,5 +62,71 @@ namespace cidades.Infrastructure.Services
             .ToList();
             return _dbContext.Cities.Where(c => idIntList.Contains(c.Id.Value)).ToList();
         }
+
+        internal string FindPath(City city, City cityTo)
+        {
+            return this.DepthFirstIterative(city, cityTo);
+        }
+        
+        // Das aulas de Estrutura de Dados 1/2: DFS
+        // procura em um grafo selecionando sempre, no caso, a primeira cidade vizinha
+        // caso não encontre, faz o backtrack e tenta a segunda, e assim por diante
+        // ligeiramente modificado da fonte: https://stackoverflow.com/a/26429707 
+        private string DepthFirstIterative(City start, City endNode)
+        {
+            string pathCityNames = string.Empty;
+            var visited = new LinkedList<City>();
+            var stack = new Stack<City>();
+
+            stack.Push(start);
+
+            while (stack.Count != 0)
+            {
+                var current = stack.Pop();
+
+                if (visited.Contains(current))
+                    continue;
+
+                visited.AddLast(current);
+                // faz o Get toda vez, para garantir o Load das entidades
+                // das listas que compõem a propriedade Neighbors
+                var neighbors = new LinkedList<City>(this.Get(current.Id.Value).Neighbors);
+
+                foreach (var neighbor in neighbors)
+                {
+                    if (visited.Contains(neighbor))
+                        continue;
+
+                    if (neighbor.Equals(endNode))
+                    {
+                        visited.AddLast(neighbor);
+                        pathCityNames = string.Join(',',visited.Select(c => c.Name).ToList());
+                        visited.RemoveLast();
+                        break;
+                    }
+                }
+
+                // aqui não estamos necessariamente preocupados com menor caminho
+                // então se encontrou um, já retorna
+                if(!string.IsNullOrEmpty(pathCityNames))
+                    break;
+
+                bool isPushed = false;
+                foreach (var neighbor in neighbors.Reverse())
+                {
+                    if (neighbor.Equals(endNode) || visited.Contains(neighbor) || stack.Contains(neighbor))
+                    {
+                        continue;
+                    }
+
+                    isPushed = true;
+                    stack.Push(neighbor);
+                }
+
+                if (!isPushed)
+                    visited.RemoveLast();
+            }
+            return pathCityNames;
+        }
     }
 }
