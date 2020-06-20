@@ -4,6 +4,7 @@ using EZ.Knewin.Teste.Domain.Interfaces;
 using EZ.Knewin.Teste.Service.Dtos;
 using EZ.Knewin.Teste.Service.Interfaces;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace EZ.Knewin.Teste.Service.Services
 {
@@ -18,15 +19,15 @@ namespace EZ.Knewin.Teste.Service.Services
             _mapper = mapper;
         }
 
-        public CidadeDto Atualizar(CidadeDto cidadeDto)
+        public async Task<CidadeDto> Atualizar(CidadeDto cidadeDto)
         {
             var cidade = _mapper.Map<Cidade>(cidadeDto);
             if (cidadeDto.FronteirasIds != null)
                 cidade.AlterarFronteiras(JsonConvert.SerializeObject(cidadeDto.FronteirasIds));
 
-            cidade =  _cidadeRepository.Atualizar(cidade);
+            cidade = _cidadeRepository.Atualizar(cidade);
 
-            _cidadeRepository.SaveChanges();
+            await _cidadeRepository.SaveChangesAsync();
 
             return _mapper.Map<CidadeDto>(cidade);
         }

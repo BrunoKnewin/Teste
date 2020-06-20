@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 namespace EZ.Knewin.Teste.Api.Controllers
 {
     [Route("api/account")]
+    #pragma warning disable 1591
     public class LoginController : Controller
     {
 

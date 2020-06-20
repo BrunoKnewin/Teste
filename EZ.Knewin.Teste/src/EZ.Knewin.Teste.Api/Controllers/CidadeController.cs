@@ -8,6 +8,7 @@ namespace EZ.Knewin.Teste.Api.Controllers
 {
     [Route("api/cidade")]
     [ApiController]
+    #pragma warning disable 1591
     public class CidadeController : Controller
     {
         [HttpPost]
@@ -69,7 +70,7 @@ namespace EZ.Knewin.Teste.Api.Controllers
         [HttpPut]
         public async Task<IActionResult> Put([FromServices] IAtualizadorDeCidade atualizadorDeCidade, [FromBody] CidadeDto cidadeDto)
         {
-            var cidade = atualizadorDeCidade.Atualizar(cidadeDto);
+            var cidade = await atualizadorDeCidade.Atualizar(cidadeDto);
 
             if (cidade == null) return BadRequest("Ocorreu um problema ao atualizar.");
 

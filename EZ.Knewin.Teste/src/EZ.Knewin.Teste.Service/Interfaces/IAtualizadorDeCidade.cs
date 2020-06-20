@@ -1,9 +1,10 @@
 ﻿using EZ.Knewin.Teste.Service.Dtos;
+using System.Threading.Tasks;
 
 namespace EZ.Knewin.Teste.Service.Interfaces
 {
     public interface IAtualizadorDeCidade
     {
-        CidadeDto Atualizar(CidadeDto cidadeDto);
+        Task<CidadeDto> Atualizar(CidadeDto cidadeDto);
     }
 }

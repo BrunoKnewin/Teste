@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
+#pragma warning disable 1591
 namespace EZ.Knewin.Teste.Api
 {
     public class Startup

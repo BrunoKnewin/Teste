@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using System.Reflection;
 
+#pragma warning disable 1591
 namespace EZ.Knewin.Teste.Api.Extensions
 {
     public static class SwaggerExtensions

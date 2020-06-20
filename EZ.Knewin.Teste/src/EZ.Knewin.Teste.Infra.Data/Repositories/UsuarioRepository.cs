@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+#pragma warning disable 1591,1998
 namespace EZ.Knewin.Teste.Infra.Data.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository

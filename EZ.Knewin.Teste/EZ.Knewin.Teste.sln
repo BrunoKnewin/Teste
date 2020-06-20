@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.Knewin.Teste.Api", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.Knewin.Teste.Infra.IoC", "src\EZ.Knewin.Teste.Infra.IoC\EZ.Knewin.Teste.Infra.IoC.csproj", "{9B2F3F05-FF3B-41F6-9A42-0E2087425F53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.Knewin.Teste.Algoritmos", "EZ.Knewin.Teste.Algoritmos\EZ.Knewin.Teste.Algoritmos.csproj", "{AF980A10-20EB-4E50-AA0E-57D35944DD19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.Knewin.Teste.Algoritmos", "src\EZ.Knewin.Teste.Algoritmos\EZ.Knewin.Teste.Algoritmos.csproj", "{AF980A10-20EB-4E50-AA0E-57D35944DD19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

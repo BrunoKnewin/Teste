@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
+#pragma warning disable 1591
 namespace EZ.Knewin.Teste.Api.Extensions
 {
     public static class ServiceExtensions

@@ -6,6 +6,7 @@ namespace EZ.Knewin.Teste.Api.Controllers
 {
     [Route("api/estado")]
     [ApiController]
+    #pragma warning disable 1591
     public class EstadoController : Controller
     {
         [HttpGet]

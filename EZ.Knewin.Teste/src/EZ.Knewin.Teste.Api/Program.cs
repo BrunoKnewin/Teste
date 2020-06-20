@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
+#pragma warning disable 1591
 namespace EZ.Knewin.Teste.Api
 {
     public class Program

@@ -12,7 +12,7 @@ namespace EZ.Knewin.Teste.Infra.IoC
 
         public static void AddIoC(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<TesteDbContext>(options => options.UseSqlServer(configuration["ConnectionStrings:KnewinTeste"]));
+            services.AddDbContext<TesteDbContext>(options => options.UseSqlServer(configuration["ConnectionString:KnewinTeste"]));
 
             services.AddScoped<ICidadeRepository, CidadeRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
