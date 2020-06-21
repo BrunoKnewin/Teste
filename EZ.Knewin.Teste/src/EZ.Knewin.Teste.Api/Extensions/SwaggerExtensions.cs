@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -20,6 +21,46 @@ namespace EZ.Knewin.Teste.Api.Extensions
                 {
                     Title = "API",
                     Version = "v1"
+                });
+
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme 
+                {
+                    Type = SecuritySchemeType.OAuth2,
+                    In = ParameterLocation.Header,
+                    Scheme = "oauth2",
+                    Name = "Authorization",
+                    Flows = new OpenApiOAuthFlows
+                    {
+                        Password = new OpenApiOAuthFlow
+                        {
+                            TokenUrl = new Uri(configuration["AppSettings:Url"] + @"/account/login")
+                        }
+                    }
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                            Scheme = "oauth2",
+                            Name = "Bearer",
+                            In = ParameterLocation.Header,
+                            Flows = new OpenApiOAuthFlows
+                            { 
+                                Password = new OpenApiOAuthFlow
+                                {
+                                    TokenUrl = new Uri(configuration["AppSettings:Url"] + @"/account/login")
+                                }
+                            },
+                        },
+                        new List<string>()
+                    }
                 });
 
                 options.IncludeXmlComments(GetPathForDocuments());
@@ -39,15 +80,14 @@ namespace EZ.Knewin.Teste.Api.Extensions
 
             app.UseSwaggerUI(c =>
             {
-                //c.RoutePrefix = "api-docs";
                 c.SwaggerEndpoint($"{basePath}/swagger/v1/swagger.json", "API");
                 c.InjectStylesheet($"{basePath}/swagger-ui/custom.css");
                 c.DocExpansion(DocExpansion.List);
                 c.DocumentTitle = "Knewin - Teste";
-                //c.OAuthClientId("swagger-ui");
-                //c.OAuthClientSecret("swagger-ui-secret");
-                //c.OAuthRealm("swagger-ui-realm");
-                //c.OAuthAppName("Swagger UI");
+                c.OAuthClientId("swagger-ui");
+                c.OAuthClientSecret("swagger-ui-secret");
+                c.OAuthRealm("swagger-ui-realm");
+                c.OAuthAppName("Swagger UI");
             });
 
             return app;
