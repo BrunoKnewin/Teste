@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Cidade } from '../../modulos/cidade';
 import { FronteirasCidade } from '../../modulos/fronteirascidade';
+import { LigacaoCidades } from '../../modulos/ligacaocidades';
 import { CidadeService } from '../../servicos/Cidade.service';
 import { FronteirasCidadeService } from '../../servicos/fronteirascidade.service';
 @Component({
@@ -19,11 +20,11 @@ export class MapaComponent {
   public fronteirasCidade: FronteirasCidade;
   public fronteirasCidadeCorrente: FronteirasCidade;
   public cidade: Cidade;
+  public cidadeCaminho: [Cidade];
   public fronteira: Cidade;
   public fronteiraA: Cidade;
   public fronteiraB: Cidade;
-
-
+  public ligacaoCidades: LigacaoCidades;
   constructor(public cidadeService: CidadeService, public fronteirasCidadeService: FronteirasCidadeService) {
     this.mensagem = '';
     this.nomeCidade = '';
@@ -37,6 +38,7 @@ export class MapaComponent {
     this.fronteirasCidadeCorrente = new FronteirasCidade();
     this.fronteirasCidade = new FronteirasCidade();
     this.Pesquisa();
+    this.ligacaoCidades = new LigacaoCidades();
   }
   //POST
   Pesquisa() {
@@ -136,7 +138,7 @@ export class MapaComponent {
       for (var indice = 0; indice < this.cidades.length; indice++) {
         if (this.cidade.codigo != this.cidades[indice].codigo) {
           if (!this.cidadesFronteira) {
-            this.cidadesFronteira = [{ codigo: this.cidades[indice].codigo, nome: this.cidades[indice].nome, habitantes: this.cidades[indice].habitantes, fronteirasCidade: this.cidades[indice].fronteirasCidade }];
+            this.cidadesFronteira = [{ codigo: this.cidades[indice].codigo, nome: this.cidades[indice].nome, habitantes: this.cidades[indice].habitantes, sequencia:null, fronteirasCidade: this.cidades[indice].fronteirasCidade }];
           }
           else {
             this.cidadesFronteira.push(this.cidades[indice]);
@@ -163,8 +165,16 @@ export class MapaComponent {
       this.RemoveFronteiraCidade(fronteirasCidadeCorrente);
     }
   }
-  PesquisaCaminho() {
-    this.fronteiraA = new Cidade();
-    this.fronteiraB = new Cidade();
+  RetornaCaminho() {
+    if (this.fronteiraA != this.fronteiraB) {
+      this.ligacaoCidades.cidadeA = this.fronteiraA.codigo;
+      this.ligacaoCidades.cidadeB = this.fronteiraB.codigo;
+      this.fronteirasCidadeService.PesquisaCaminho(this.ligacaoCidades).subscribe(res => {
+        this.cidadeCaminho = res;
+        for (var indice = 0; indice < this.cidadeCaminho.length; indice++) {
+          this.cidadeCaminho[indice].sequencia = indice + 1;
+        }
+      });
+    }
   }
 }

@@ -1,0 +1,13 @@
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\bin\Debug\netcoreapp3.1\TesteProjecaoEmEscala.exe
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\bin\Debug\netcoreapp3.1\TesteProjecaoEmEscala.deps.json
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\bin\Debug\netcoreapp3.1\TesteProjecaoEmEscala.runtimeconfig.json
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\bin\Debug\netcoreapp3.1\TesteProjecaoEmEscala.runtimeconfig.dev.json
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\bin\Debug\netcoreapp3.1\TesteProjecaoEmEscala.dll
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\bin\Debug\netcoreapp3.1\TesteProjecaoEmEscala.pdb
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\obj\Debug\netcoreapp3.1\TesteProjecaoEmEscala.csprojAssemblyReference.cache
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\obj\Debug\netcoreapp3.1\TesteProjecaoEmEscala.AssemblyInfoInputs.cache
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\obj\Debug\netcoreapp3.1\TesteProjecaoEmEscala.AssemblyInfo.cs
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\obj\Debug\netcoreapp3.1\TesteProjecaoEmEscala.csproj.CoreCompileInputs.cache
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\obj\Debug\netcoreapp3.1\TesteProjecaoEmEscala.dll
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\obj\Debug\netcoreapp3.1\TesteProjecaoEmEscala.pdb
+E:\TesteKnewin\Knewin\Login\TesteProjecaoEmEscala\obj\Debug\netcoreapp3.1\TesteProjecaoEmEscala.genruntimeconfig.cache

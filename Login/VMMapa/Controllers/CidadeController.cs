@@ -86,5 +86,24 @@ namespace VMMapa.Controllers
                 return false;
             }
         }
+
+        [HttpPost]
+        [Route("PesquisaCaminho")]
+        public List<Cidade> PesquisaCaminho(LigacaoCidades ligacaoCidades)
+        {
+            try
+            {
+                return new ManipulaFronteirasCidade().PesquisaCaminho(new Cidade() { codigo = ligacaoCidades.cidadeA }, new Cidade() { codigo = ligacaoCidades.cidadeB });
+            }
+            catch (Exception ex)
+            {
+                return new List<Cidade>();
+            }
+        }
+    }
+    public class LigacaoCidades
+    {
+        public long cidadeA { get; set; }
+        public long cidadeB { get; set; }
     }
 }

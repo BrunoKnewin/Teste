@@ -74,16 +74,42 @@
   <input [(ngModel)]="this.quantidadeHabitantes"/>
 </p>
 <p>
+  Cidade Inicio
   <select class="form-control" [(ngModel)]="this.fronteiraA">
     <option value="0">Selecione uma opção</option>
     <option *ngFor="let cidadeSelecionada of this.cidades" [ngValue]="cidadeSelecionada">{{cidadeSelecionada.nome}}</option>
   </select>
+  Cidade Fim
   <select class="form-control" [(ngModel)]="this.fronteiraB">
     <option value="0">Selecione uma opção</option>
     <option *ngFor="let cidadeSelecionada of this.cidades" [ngValue]="cidadeSelecionada">{{cidadeSelecionada.nome}}</option>
   </select>
+  <button class="btn btn-primary" (click)="RetornaCaminho(cidadeCorrente)" title="Editar">></button>
 </p>
-
+<div class="w-100">
+  <table class="w-100">
+    <thead>
+      <tr>
+        <td>Sequência</td>
+        <td>Nome</td>
+        <td>Quantidade de Habitantes</td>
+      </tr>
+    </thead>
+    <tbody *ngFor="let cidadeCorrente of this.cidadeCaminho">
+      <tr>
+        <td>
+          {{cidadeCorrente.sequencia}}
+        </td>
+        <td>
+          {{cidadeCorrente.nome}}
+        </td>
+        <td>
+          {{cidadeCorrente.habitantes}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div *ngIf="this.mensagem.length > 0" class="alert alert-danger w-100 ">
   <h5>{{this.mensagem}}</h5>
 </div>

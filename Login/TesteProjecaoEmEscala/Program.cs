@@ -1,38 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using VMMapaNegocio.Tabelas;
 
-namespace VMMapaNegocio
+namespace TesteProjecaoEmEscala
 {
-    /// <summary>
-    /// Manipulador de procedimento voltados a FronteirasCidades
-    /// </summary>
-    public class ManipulaFronteirasCidade : BancoDeDados
+    class Program
     {
-        public FronteirasCidade Inclui(FronteirasCidade fronteirasCidade)
+        static void Main(string[] args)
         {
-            if (busca.PesquisaT<FronteirasCidade>(new FronteirasCidade() { cidadeId = fronteirasCidade.cidadeId, fronteiraId = fronteirasCidade.fronteiraId }, 2).Count == 0)
-            {
-                return inclui.IncluiT<FronteirasCidade>(fronteirasCidade, 2);
-            }
-            else
-            {
-                return fronteirasCidade;
-            }
-        }
-        public FronteirasCidade Remove(FronteirasCidade fronteirasCidade)
-        {
-            return remove.RemoveT<FronteirasCidade>(fronteirasCidade, 2);
-        }
-        public List<FronteirasCidade> Pesquisa(FronteirasCidade fronteirasCidade)
-        {
-            return busca.PesquisaT<FronteirasCidade>(fronteirasCidade, 2).ToList();
-        }
-        public List<Cidade> PesquisaCaminho(Cidade cidadeA, Cidade cidadeB)
-        {
-            long cidadeinicio = cidadeA.codigo;
-            long cidadefim = cidadeB.codigo;
-            List<LigacaoCidades> todos = busca.PesquisaTodosT<FronteirasCidade>(new FronteirasCidade(), 2).Select(s => new LigacaoCidades() { CidadeA = s.cidadeId, CidadeB = s.fronteiraId }).OrderBy(s => s.CidadeA).ToList();
+            long cidadeinicio = 1;
+            long cidadefim = 8;
+            List<LigacaoCidades> todos = Todos();
             List<LigacaoCidades> fronteirasCorrente = todos.Where(s => s.CidadeA == cidadeinicio || s.CidadeB == cidadeinicio).ToList();
             List<LigacaoCidades> caminhos = new List<LigacaoCidades>();
 
@@ -51,19 +29,20 @@ namespace VMMapaNegocio
                     fronteirasCarregamento.AddRange(todos.Where(s => s.CidadeA == ligacao.CidadeA || s.CidadeB == ligacao.CidadeA));
                     fronteirasCarregamento.AddRange(todos.Where(s => s.CidadeB == ligacao.CidadeB || s.CidadeA == ligacao.CidadeB));
                     fronteirasCarregamento = fronteirasCarregamento.Distinct().ToList();
+                    Visualisa(fronteirasCarregamento);
                     if (fronteirasCarregamento.Where(s => s.CidadeA == cidadefim || s.CidadeB == cidadefim).Count() > 0)
                     {
                         encontrou = true;
                         caminhos.Add(ligacao);
                         caminhos.Add(fronteirasCarregamento.Where(s => s.CidadeA == cidadefim || s.CidadeB == cidadefim).First());
                     }
-                    else if (caminhos.Where(s => s.CidadeA == ligacao.CidadeA && s.CidadeB == ligacao.CidadeB).Count() == 0
+                    else if (  caminhos.Where(s => s.CidadeA == ligacao.CidadeA && s.CidadeB == ligacao.CidadeB).Count() == 0
                             || caminhos.Where(s => s.CidadeA == ligacao.CidadeB && s.CidadeB == ligacao.CidadeA).Count() == 0)
                     {
                         caminhos.Add(ligacao);
                     }
                 }
-                if (caminhos.Last().CidadeA == cidadefim || caminhos.Last().CidadeB == cidadefim)
+                if(caminhos.Last().CidadeA == cidadefim || caminhos.Last().CidadeB == cidadefim)
                 {
                     break;
                 }
@@ -78,54 +57,114 @@ namespace VMMapaNegocio
             }
             List<LigacaoCidades> caminhoEscolhido = new List<LigacaoCidades>();
             long proximo = cidadefim;
+            Visualisa(caminhos.Distinct().ToList());
             foreach (LigacaoCidades ligacaoCidades in caminhos.Distinct())
             {
                 if (ligacaoCidades.CidadeA == cidadeinicio && caminhoEscolhido.Count == 0)
                 {
                     caminhoEscolhido.Add(new LigacaoCidades() { CidadeA = ligacaoCidades.CidadeA, CidadeB = ligacaoCidades.CidadeB });
                 }
-                else if (ligacaoCidades.CidadeB == cidadeinicio && caminhoEscolhido.Count == 0)
+                else if (ligacaoCidades.CidadeB == cidadeinicio &&  caminhoEscolhido.Count == 0)
                 {
                     caminhoEscolhido.Add(new LigacaoCidades() { CidadeA = ligacaoCidades.CidadeB, CidadeB = ligacaoCidades.CidadeA });
                 }
                 else if (ligacaoCidades.CidadeA == caminhoEscolhido.Last().CidadeB)
                 {
-                    if (caminhos.Where(s => s.CidadeA == ligacaoCidades.CidadeB || s.CidadeA == ligacaoCidades.CidadeB).Count() > 1)
+                    if(caminhos.Where(s => s.CidadeA == ligacaoCidades.CidadeB || s.CidadeA == ligacaoCidades.CidadeB).Count() > 1)
                     {
                         caminhoEscolhido.Add(new LigacaoCidades() { CidadeA = ligacaoCidades.CidadeA, CidadeB = ligacaoCidades.CidadeB });
                     }
                 }
-                else if (ligacaoCidades.CidadeA == caminhoEscolhido.Last().CidadeB && caminhos.Where(s => s.CidadeA == ligacaoCidades.CidadeB || s.CidadeA == ligacaoCidades.CidadeB).Count() > 1)
+                else if (ligacaoCidades.CidadeA == caminhoEscolhido.Last().CidadeB && caminhos.Where(s=> s.CidadeA == ligacaoCidades.CidadeB || s.CidadeA == ligacaoCidades.CidadeB).Count() > 1)
                 {
                     caminhoEscolhido.Add(new LigacaoCidades() { CidadeA = ligacaoCidades.CidadeA, CidadeB = ligacaoCidades.CidadeB });
                 }
-                else if (caminhos.Where(s => s.CidadeA == ligacaoCidades.CidadeB || s.CidadeA == ligacaoCidades.CidadeB).Count() > 1)
+                else if(caminhos.Where(s => s.CidadeA == ligacaoCidades.CidadeB || s.CidadeA == ligacaoCidades.CidadeB).Count() > 1)
                 {
                     caminhoEscolhido.Add(new LigacaoCidades() { CidadeA = ligacaoCidades.CidadeA, CidadeB = ligacaoCidades.CidadeB });
                 }
                 else if (ligacaoCidades.CidadeA == cidadefim)
                 {
-                    caminhoEscolhido.Add(new LigacaoCidades() { CidadeA = caminhoEscolhido.Last().CidadeB, CidadeB = ligacaoCidades.CidadeA });
+                    caminhoEscolhido.Add(new LigacaoCidades() { CidadeA = caminhoEscolhido.Last().CidadeB, CidadeB = ligacaoCidades.CidadeA});
                 }
-
+                
                 if (ligacaoCidades.CidadeB == cidadefim)
                 {
                     caminhoEscolhido.Add(new LigacaoCidades() { CidadeA = caminhoEscolhido.Last().CidadeB, CidadeB = ligacaoCidades.CidadeB });
                 }
+                Visualisa(caminhoEscolhido);
             }
-
-            List<Cidade> cidadesNaOrdem = new List<Cidade>();
-
-            foreach (LigacaoCidades cidade in caminhoEscolhido)
-            {
-                cidadesNaOrdem.Add(busca.BuscaT<Cidade>(new Cidade() { codigo = cidade.CidadeA }, 2));
-                cidadesNaOrdem.Add(busca.BuscaT<Cidade>(new Cidade() { codigo = cidade.CidadeB }, 2));
-            }
-            return cidadesNaOrdem;
+            Visualisa(caminhoEscolhido);
         }
-        List<LigacaoCidades> RetornaFronteirasDeLista(long cidadeCodigo, List<LigacaoCidades> ligacaoCidades)
+        public static void Visualisa(List<LigacaoCidades> ligacaoCidades)
         {
-            return ligacaoCidades.Where(s => s.CidadeA == cidadeCodigo || s.CidadeB == cidadeCodigo).ToList();
+
+            Console.WriteLine("-- INICIO --");
+            foreach (LigacaoCidades ligacao in ligacaoCidades)
+            {
+                Console.WriteLine($"ligação A:{ligacao.CidadeA} - B:{ligacao.CidadeB}");
+            }
+            Console.WriteLine("-- FINAL --");
+        }
+        public static List<LigacaoCidades> Todos()
+        {
+            List<LigacaoCidades> ligacaoCidades = new List<LigacaoCidades>();
+            ligacaoCidades.Add(new LigacaoCidades()
+            {
+               CidadeA=1,
+               CidadeB=2
+            });
+            ligacaoCidades.Add(new LigacaoCidades()
+            {
+                CidadeA = 1,
+                CidadeB = 3
+            });
+            ligacaoCidades.Add(new LigacaoCidades()
+            {
+                CidadeA = 1,
+                CidadeB = 5
+            });
+            ligacaoCidades.Add(new LigacaoCidades()
+            {
+                CidadeA = 1,
+                CidadeB = 7
+            });
+            ligacaoCidades.Add(new LigacaoCidades()
+            {
+                CidadeA = 1,
+                CidadeB = 9
+            });
+            ligacaoCidades.Add(new LigacaoCidades()
+            {
+                CidadeA = 2,
+                CidadeB = 4
+            });
+            ligacaoCidades.Add(new LigacaoCidades()
+            {
+                CidadeA = 4,
+                CidadeB = 7
+            });
+            ligacaoCidades.Add(new LigacaoCidades()
+            {
+                CidadeA = 5,
+                CidadeB = 6
+            });
+            ligacaoCidades.Add(new LigacaoCidades()
+            {
+                CidadeA = 7,
+                CidadeB = 8
+            });
+            ligacaoCidades.Add(new LigacaoCidades()
+            {
+                CidadeA = 9,
+                CidadeB = 10
+            });
+            ligacaoCidades.Add(new LigacaoCidades()
+            {
+                CidadeA = 9,
+                CidadeB = 11
+            });
+            return ligacaoCidades;
         }
     }
     class LigacaoCidades

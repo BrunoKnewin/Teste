@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{55C21253-8582-4DE2-B601-3F272047026D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Login", "Login\Login.csproj", "{55C21253-8582-4DE2-B601-3F272047026D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginNegocio", "LoginNegocio\LoginNegocio.csproj", "{E4DC93BD-17A3-4F90-94CA-6092934312AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginNegocio", "LoginNegocio\LoginNegocio.csproj", "{E4DC93BD-17A3-4F90-94CA-6092934312AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMMapa", "VMMapa\VMMapa.csproj", "{1A5A876F-5AB2-41DC-B9DF-A38CB3B49270}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMMapa", "VMMapa\VMMapa.csproj", "{1A5A876F-5AB2-41DC-B9DF-A38CB3B49270}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMMapaNegocio", "VMMapaNegocio\VMMapaNegocio.csproj", "{DEC00FDE-F21A-4381-810A-BEB4381E38C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMMapaNegocio", "VMMapaNegocio\VMMapaNegocio.csproj", "{DEC00FDE-F21A-4381-810A-BEB4381E38C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteProjecaoEmEscala", "TesteProjecaoEmEscala\TesteProjecaoEmEscala.csproj", "{7B8AF02C-3C34-4D66-9425-F0C6FFF410CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{DEC00FDE-F21A-4381-810A-BEB4381E38C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEC00FDE-F21A-4381-810A-BEB4381E38C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEC00FDE-F21A-4381-810A-BEB4381E38C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B8AF02C-3C34-4D66-9425-F0C6FFF410CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B8AF02C-3C34-4D66-9425-F0C6FFF410CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B8AF02C-3C34-4D66-9425-F0C6FFF410CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8AF02C-3C34-4D66-9425-F0C6FFF410CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
