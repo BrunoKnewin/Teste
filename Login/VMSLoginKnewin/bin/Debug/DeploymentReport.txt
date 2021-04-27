@@ -1,0 +1,22 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [LGM] (Schema)
+       [LGM].[Usuarios] (Table)
+       [LGM].[TokensUsuarios] (Table)
+       [LGM].[Tokens] (Table)
+       [dbo].[__MigrationHistory] (Table)
+       [LGM].[FK_LGM.Tokens.TokenId] (Foreign Key)
+       [LGM].[FK_LGM.TokensUsuarios.UsuarioId] (Foreign Key)
+       Permission (Permission)
+
+** Supporting actions

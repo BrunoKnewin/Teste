@@ -1,0 +1,89 @@
+<h1>Mapa</h1>
+<p>
+  <button class="btn btn-success w-50" (click)="RecarregaCidade(null)">Incluir Cidade >></button>
+  <button class="btn btn-primary w-50" (click)="Pesquisar()">Pesquisas >></button>
+</p>
+<div *ngIf="this.IncluirAlterar">
+  <p>Nome</p>
+  <input type="text" class="w-100" [(ngModel)]="cidade.nome" />
+  <p>Quantidade de Habitantes</p>
+  <input type="number" class="w-100" [(ngModel)]="cidade.habitantes" />
+  <p>Selecione Fronteiras</p>
+  <p>
+    <select class="form-control" [(ngModel)]="this.fronteira">
+      <option value="0">Selecione uma opção</option>
+      <option *ngFor="let fronteiraSelecionada of this.cidadesFronteira" [ngValue]="fronteiraSelecionada">{{fronteiraSelecionada.nome}}</option>
+    </select>
+  </p>
+  <p>
+    <button class="btn btn-success w-100" (click)="SelecionaFronteira()">Selecionar Fronteira >></button>
+  </p>
+  <table class="w-100">
+    <thead>
+      <tr>
+        <td>Nome</td>
+        <td>Ação</td>
+      </tr>
+    </thead>
+    <tbody *ngFor="let fronteirasCidadeCorrente of this.cidade.fronteirasCidade">
+      <tr>
+        <td>
+          {{fronteirasCidadeCorrente.fronteira.nome}}
+        </td>
+        <td>
+          <button class="btn alert-danger" (click)="RemoveFronteiraCidade(fronteirasCidadeCorrente)" *ngIf="fronteirasCidadeCorrente.codigo > 0">-</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    <button class="btn btn-success w-100" (click)="Inclui();this.IncluirAlterar = false;">Incluir Alterar Cidade >></button>
+  </p>
+</div>
+<div *ngIf="this.PesquisarAberta">
+  Filtrar nome de Cidade
+  <input type="text" [(ngModel)]="this.nomeCidade" />
+  <button class="btn btn-primary w-100" (click)="PesquisaPorNome()">Filtrar Cidades >></button>
+</div>
+<h1>Cidades</h1>
+<table class="w-100">
+  <thead>
+    <tr>
+      <td>Nome</td>
+      <td>Quantidade de Habitantes</td>
+      <td>Ação</td>
+    </tr>
+  </thead>
+  <tbody *ngFor="let cidadeCorrente of this.cidades">
+    <tr>
+      <td>
+        {{cidadeCorrente.nome}}
+      </td>
+      <td>
+        {{cidadeCorrente.habitantes}}
+      </td>
+      <td>
+        <button class="btn alert-danger" (click)="Remove(cidadeCorrente)" title="Remover">-</button>
+        <button class="btn btn-primary" (click)="RecarregaCidade(cidadeCorrente)" title="Editar">></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  Somatório de Habitantes
+  <input [(ngModel)]="this.quantidadeHabitantes"/>
+</p>
+<p>
+  <select class="form-control" [(ngModel)]="this.fronteiraA">
+    <option value="0">Selecione uma opção</option>
+    <option *ngFor="let cidadeSelecionada of this.cidades" [ngValue]="cidadeSelecionada">{{cidadeSelecionada.nome}}</option>
+  </select>
+  <select class="form-control" [(ngModel)]="this.fronteiraB">
+    <option value="0">Selecione uma opção</option>
+    <option *ngFor="let cidadeSelecionada of this.cidades" [ngValue]="cidadeSelecionada">{{cidadeSelecionada.nome}}</option>
+  </select>
+</p>
+
+<div *ngIf="this.mensagem.length > 0" class="alert alert-danger w-100 ">
+  <h5>{{this.mensagem}}</h5>
+</div>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<acoes>
+  <Selecao>SELECT * FROM ESQUEMA.TABELA WHERE 1=1 CLAUSULAS</Selecao>
+  <Adicao>INSERT INTO ESQUEMA.TABELA (COLUNAS) VALUES (DADOS) SELECT SCOPE_IDENTITY() as Id</Adicao>
+</acoes>

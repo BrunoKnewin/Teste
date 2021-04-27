@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<conexoes>
+  <LoginKnewin>Data Source=VIRAMUNDO;Initial Catalog=VMSLoginKnewin;Persist Security Info=True;User ID=sa;Password=keycode</LoginKnewin>
+</conexoes>

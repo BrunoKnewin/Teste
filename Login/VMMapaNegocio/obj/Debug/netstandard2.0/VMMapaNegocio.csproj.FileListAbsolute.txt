@@ -1,0 +1,9 @@
+E:\TesteKnewin\Knewin\Login\VMMapaNegocio\bin\Debug\netstandard2.0\VMMapaNegocio.deps.json
+E:\TesteKnewin\Knewin\Login\VMMapaNegocio\bin\Debug\netstandard2.0\VMMapaNegocio.dll
+E:\TesteKnewin\Knewin\Login\VMMapaNegocio\bin\Debug\netstandard2.0\VMMapaNegocio.pdb
+E:\TesteKnewin\Knewin\Login\VMMapaNegocio\obj\Debug\netstandard2.0\VMMapaNegocio.csprojAssemblyReference.cache
+E:\TesteKnewin\Knewin\Login\VMMapaNegocio\obj\Debug\netstandard2.0\VMMapaNegocio.AssemblyInfoInputs.cache
+E:\TesteKnewin\Knewin\Login\VMMapaNegocio\obj\Debug\netstandard2.0\VMMapaNegocio.AssemblyInfo.cs
+E:\TesteKnewin\Knewin\Login\VMMapaNegocio\obj\Debug\netstandard2.0\VMMapaNegocio.csproj.CoreCompileInputs.cache
+E:\TesteKnewin\Knewin\Login\VMMapaNegocio\obj\Debug\netstandard2.0\VMMapaNegocio.dll
+E:\TesteKnewin\Knewin\Login\VMMapaNegocio\obj\Debug\netstandard2.0\VMMapaNegocio.pdb

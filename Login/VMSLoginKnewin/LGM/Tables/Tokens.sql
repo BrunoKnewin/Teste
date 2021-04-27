@@ -1,0 +1,11 @@
+﻿CREATE TABLE [LGM].[Tokens](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[CodigoToken] [nvarchar](max) NULL,
+	[LocalidadeId] [bigint] NULL,
+	[Ativo] [bit] NOT NULL,
+	[DataSecao] [datetime] NOT NULL,
+CONSTRAINT [PK_LGM_Tokens] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]

@@ -1,0 +1,8 @@
+<h1>Palindromo</h1>
+<p>Palavra</p>
+<input type="text" class="w-100" [(ngModel)]="this.palindromoEntrada" />
+<p>
+  <button class="btn btn-success w-100" (click)="TestaPalindromo()">Selecionar Fronteira >></button>
+</p>
+<span class="btn-success" *ngIf="this.ePalindromo">É Palidromo</span>
+<span class="btn-primary" *ngIf="this.ePalindromo==false">Não é Palidromo</span>

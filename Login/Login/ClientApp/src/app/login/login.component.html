@@ -1,0 +1,11 @@
+<h1>Login</h1>
+<p>Nome</p>
+<input type="text" class="w-100" [(ngModel)]="login.nome"/>
+<p>Senha</p>
+<input type="password" class="w-100" [(ngModel)]="login.senha"/>
+<p>
+  <button class="btn btn-success w-100" (click)="RealizeLogin()">Acessar >></button>
+</p>
+<div *ngIf="this.mensagem.length > 0" class="alert alert-danger w-100 ">
+  <h5>{{this.mensagem}}</h5>
+</div>

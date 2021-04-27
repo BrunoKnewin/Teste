@@ -1,0 +1,6 @@
+E:\TesteKnewin\Knewin\Login\VMSLoginKnewin\bin\Debug\VMSLoginKnewin.dacpac
+E:\TesteKnewin\Knewin\Login\VMSLoginKnewin\bin\Debug\VMSLoginKnewin.dll
+E:\TesteKnewin\Knewin\Login\VMSLoginKnewin\bin\Debug\VMSLoginKnewin.pdb
+E:\TesteKnewin\Knewin\Login\VMSLoginKnewin\obj\Debug\VMSLoginKnewin.sqlprojAssemblyReference.cache
+E:\TesteKnewin\Knewin\Login\VMSLoginKnewin\obj\Debug\VMSLoginKnewin.dll
+E:\TesteKnewin\Knewin\Login\VMSLoginKnewin\obj\Debug\VMSLoginKnewin.pdb

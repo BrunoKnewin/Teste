@@ -1,0 +1,9 @@
+E:\TesteKnewin\Knewin\Login\LoginNegocio\bin\Debug\netstandard2.0\LoginNegocio.deps.json
+E:\TesteKnewin\Knewin\Login\LoginNegocio\bin\Debug\netstandard2.0\LoginNegocio.dll
+E:\TesteKnewin\Knewin\Login\LoginNegocio\bin\Debug\netstandard2.0\LoginNegocio.pdb
+E:\TesteKnewin\Knewin\Login\LoginNegocio\obj\Debug\netstandard2.0\LoginNegocio.csprojAssemblyReference.cache
+E:\TesteKnewin\Knewin\Login\LoginNegocio\obj\Debug\netstandard2.0\LoginNegocio.AssemblyInfoInputs.cache
+E:\TesteKnewin\Knewin\Login\LoginNegocio\obj\Debug\netstandard2.0\LoginNegocio.AssemblyInfo.cs
+E:\TesteKnewin\Knewin\Login\LoginNegocio\obj\Debug\netstandard2.0\LoginNegocio.csproj.CoreCompileInputs.cache
+E:\TesteKnewin\Knewin\Login\LoginNegocio\obj\Debug\netstandard2.0\LoginNegocio.dll
+E:\TesteKnewin\Knewin\Login\LoginNegocio\obj\Debug\netstandard2.0\LoginNegocio.pdb
