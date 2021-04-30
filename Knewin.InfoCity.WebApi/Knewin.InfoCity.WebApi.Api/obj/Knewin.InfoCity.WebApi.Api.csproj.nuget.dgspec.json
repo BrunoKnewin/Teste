@@ -1,0 +1,381 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Api\\Knewin.InfoCity.WebApi.Api.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Api\\Knewin.InfoCity.WebApi.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Api\\Knewin.InfoCity.WebApi.Api.csproj",
+        "projectName": "Knewin.InfoCity.WebApi.Api",
+        "projectPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Api\\Knewin.InfoCity.WebApi.Api.csproj",
+        "packagesPath": "C:\\Users\\cepedi-note\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\cepedi-note\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Dal\\Knewin.InfoCity.WebApi.Dal.csproj": {
+                "projectPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Dal\\Knewin.InfoCity.WebApi.Dal.csproj"
+              },
+              "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Infrastructure\\Knewin.InfoCity.WebApi.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Infrastructure\\Knewin.InfoCity.WebApi.Infrastructure.csproj"
+              },
+              "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Service\\Knewin.InfoCity.WebApi.Service.csproj": {
+                "projectPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Service\\Knewin.InfoCity.WebApi.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Dal\\Knewin.InfoCity.WebApi.Dal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Dal\\Knewin.InfoCity.WebApi.Dal.csproj",
+        "projectName": "Knewin.InfoCity.WebApi.Dal",
+        "projectPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Dal\\Knewin.InfoCity.WebApi.Dal.csproj",
+        "packagesPath": "C:\\Users\\cepedi-note\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Dal\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\cepedi-note\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Model\\Knewin.InfoCity.WebApi.Model.csproj": {
+                "projectPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Model\\Knewin.InfoCity.WebApi.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Infrastructure\\Knewin.InfoCity.WebApi.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Infrastructure\\Knewin.InfoCity.WebApi.Infrastructure.csproj",
+        "projectName": "Knewin.InfoCity.WebApi.Infrastructure",
+        "projectPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Infrastructure\\Knewin.InfoCity.WebApi.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\cepedi-note\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\cepedi-note\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Model\\Knewin.InfoCity.WebApi.Model.csproj": {
+                "projectPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Model\\Knewin.InfoCity.WebApi.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Model\\Knewin.InfoCity.WebApi.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Model\\Knewin.InfoCity.WebApi.Model.csproj",
+        "projectName": "Knewin.InfoCity.WebApi.Model",
+        "projectPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Model\\Knewin.InfoCity.WebApi.Model.csproj",
+        "packagesPath": "C:\\Users\\cepedi-note\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\cepedi-note\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Service\\Knewin.InfoCity.WebApi.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Service\\Knewin.InfoCity.WebApi.Service.csproj",
+        "projectName": "Knewin.InfoCity.WebApi.Service",
+        "projectPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Service\\Knewin.InfoCity.WebApi.Service.csproj",
+        "packagesPath": "C:\\Users\\cepedi-note\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\cepedi-note\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Dal\\Knewin.InfoCity.WebApi.Dal.csproj": {
+                "projectPath": "C:\\Users\\cepedi-note\\Documents\\Projects\\Teste\\Knewin.InfoCity.WebApi\\Knewin.InfoCity.WebApi.Dal\\Knewin.InfoCity.WebApi.Dal.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

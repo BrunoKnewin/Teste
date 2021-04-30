@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\cepedi-note\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\cepedi-note\\.nuget\\packages"
+    ]
+  }
+}

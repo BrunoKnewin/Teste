@@ -1,0 +1,12 @@
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\bin\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.exe
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\bin\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.deps.json
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\bin\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.runtimeconfig.json
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\bin\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.runtimeconfig.dev.json
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\bin\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.dll
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\bin\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.pdb
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\obj\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\obj\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.AssemblyInfo.cs
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\obj\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\obj\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.dll
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\obj\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.pdb
+C:\Users\cepedi-note\source\repos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\obj\Release\netcoreapp3.1\Knewin.Palindrome.ConsoleApp.genruntimeconfig.cache
