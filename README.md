@@ -36,18 +36,18 @@
 						
 						- Guardar o valor do token recebido como resposta do passo acima
 						
-						- Na aba "Authorization" selecionar no seletor "Type" o tipo de autorização "Bearer Token" e colocar o valor do token no campo "Token"
+						- Na aba "Authorization" selecionar no seletor "Type" o tipo de autorização "Bearer Token" e colocar o valor do token no campo           					   "Token"
 						
 						- Realizar as requisições da API de acordo com a documentação abaixo
 	
-	(!) Outra opção para inciar o banco é abrir abrir a aplicação com o visual studio a partir do diretório navegando ate a pasta "...\Knewin.InfoCity.WebApi".
-		Com o projeto aberto, abrir o "Console de gerenciador de pacotes", ajustar o projeto padãro para Knewin.InfoCity.Dal e definir o projeto "Knewin.InfoCity.WebApi.Api" 
-		como "projeto de inicialização" no "Gerenciador de soluções". Rodar o comando "Update-database" e subir o arquivo com os dados "InfoCityScriptOnlyData.sql" para o Sql Server.
+	(!) Outra opção para iniciar o banco de é abrir abrir a aplicação com o visual studio a partir do diretório navegando ate a pasta "...\Knewin.InfoCity.WebApi".
+	    Com o projeto aberto, abrir o "Console de gerenciador de pacotes", ajustar o projeto padãro para Knewin.InfoCity.Dal e definir o projeto "Knewin.InfoCity.WebApi.Api" 
+	    como "projeto de inicialização" no "Gerenciador de soluções". Rodar o comando "Update-database" e subir o arquivo com os dados "InfoCityScriptOnlyData.sql" para o 		    Sql Server.
 
 -Documentação 
 
-		POST localhost:5000/api/User/Login
-		/// <summary>
+	POST localhost:5000/api/User/Login
+	/// <summary>
         /// Faz a autenticação de usuário para acesso as requisições da api
         /// </summary>
         /// <param name="user">Nome e senha de usuário</param>
@@ -58,30 +58,30 @@
 		user= {"Name":"nomeDeUsuário","Password","senhaDeUsuário"}
 
 
-		GET localhost:5000/api/City/FindAll
-	    /// <summary>
-		///  Busca todos as cidades cadastradas
-		/// </summary>
-		/// <returns>Todas as cidades cadastradas</returns>
+	GET localhost:5000/api/City/FindAll
+	/// <summary>
+	///  Busca todos as cidades cadastradas
+	/// </summary>
+	/// <returns>Todas as cidades cadastradas</returns>
 	
 	
-		POST localhost:5000/api/City/FindByName
-		/// <summary>
+	POST localhost:5000/api/City/FindByName
+	/// <summary>
         ///  Busca cidades específica
         /// </summary>
         /// <param name="name">nome da cidade que se deseja conhecer</param>
         /// <returns>todos os dados da cidades buscada</returns>
 
 
-		POST localhost:5000/api/City/FindBordersName
-		/// <summary>
+	POST localhost:5000/api/City/FindBordersName
+	/// <summary>
         /// Nome das cidades que fazem fronteira com uma cidade específica
         /// </summary>
         /// <param name="name">nome da cidade que se deseja conhecer o nome das cidades que fazem fronteira</param>
         /// <returns>Nome das cidades que fazem fronteira</returns>
 
-		POST localhost:5000/api/City/FindTotalPopulationGroup
-		/// <summary>
+	POST localhost:5000/api/City/FindTotalPopulationGroup
+	/// <summary>
         /// Busca o total da população de um grupo de cidades em especifíco
         /// </summary>
         /// <param name="citiesName">vetor com o nome das cidades que se deseja conhecer o total da população</param>
@@ -90,8 +90,8 @@
 		Content-type: application/json
 		citiesName = ["cidadeA","cidadeB","cidadeC"]
 
-		POST localhost:5000/api/City/Create
-		/// <summary>
+	POST localhost:5000/api/City/Create
+	/// <summary>
         /// Cadastra uma nova cidade
         /// </summary>
         /// <param name="name">Nome da cidade que se deseja cadastrar</param>
@@ -105,8 +105,8 @@
 		Para novas cidades sem fornteiras declaradas, citiesBorderName:[]
 		
 
-		POST localhost:5000/api/City/Update
-		/// <summary>
+	POST localhost:5000/api/City/Update
+	/// <summary>
         /// Atualiza dados de uma cidade ja cadastrada
         /// </summary>
         /// <param name="name">Nome da cidade que se deseja atualizar</param>
@@ -126,17 +126,19 @@
 		
 		Tipo			Caminho											Permissão
 
-		POST			/api/User/Login									Não autenticado
-		GET				/api/City/FindAll								Não autenticado
-		POST			/api/User/FindByName							Autenticado
-		POST			/api/User/FindBordersName						Autenticado
-		POST			/api/User/FindTotalPopulationGroup				Autenticado
-		POST			/api/User/Create								Autenticado
-		POST			/api/User/Update								Autenticado
+		POST			/api/User/Login										Não autenticado
+		GET			/api/City/FindAll									Não autenticado
+		POST			/api/User/FindByName									Autenticado
+		POST			/api/User/FindBordersName								Autenticado
+		POST			/api/User/FindTotalPopulationGroup							Autenticado
+		POST			/api/User/Create									Autenticado
+		POST			/api/User/Update									Autenticado
 		
 		
 -Usuário cadastrada para login
+		
 		Name = Knewin
+		
 		Password = 123456
 		
 		
