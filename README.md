@@ -18,7 +18,7 @@
 
 --Iniciando o projeto
 	- Ou Baixar ou clonar ou fazer um pull do projeto "Teste"
-	- Criar banco de dados, sua estrutura e informações a partir do script InfoCityScriptDB.sql contido dentro da pasta do projeto "...\Teste\Knewin.InfoCity.WebApi" (!)
+	- Criar banco de dados, sua estrutura e carga de informações rodando o script "InfoCityScriptDB.sql" contido dentro da pasta do projeto "...\Teste\Knewin.InfoCity.WebApi" (!)
 		
 		--Rodando o projeto
 			- Abra o arquivo "appsettings.json" contido no caminho "...\Teste\Knewin.InfoCity.WebApi\Knewin.InfoCity.WebApi.Api" e ajuste o nome do servidor Sql Server 
