@@ -17,8 +17,8 @@
 	- Sql Server Management Studio 18
 
 --Iniciando o projeto
-	- Baixar, clonar ou fazer um pull do projeto "Teste"
-	- Criar banco de dados, sua estrutura e informações a partir do script InfoCityScriptDB.sql contido dentro da pasta principal (!)
+	- Ou Baixar ou clonar ou fazer um pull do projeto "Teste"
+	- Criar banco de dados, sua estrutura e informações a partir do script InfoCityScriptDB.sql contido dentro da pasta do projeto "...\Teste\Knewin.InfoCity.WebApi" (!)
 		
 		--Rodando o projeto
 			- Abra o arquivo "appsettings.json" contido no caminho "...\Teste\Knewin.InfoCity.WebApi\Knewin.InfoCity.WebApi.Api" e ajuste o nome do servidor Sql Server 
@@ -161,12 +161,12 @@
 
 --Iniciando o projeto
 	
-	- Baixar, clonar ou fazer um pull do projeto "Teste"
+	- Ou Baixar ou clonar ou fazer um pull do projeto "Teste"
 		
 		--Rodando o projeto
 			
-			- Abrir o terminal e navegar ate a pasta do projeto "...\Teste\Algoritimos\Knewin.FirstNumberRepeat.ConsoleApp" e compilar a classe  		   				"FirstNumberRepeat.cs"
-			
+			- Abrir o terminal e navegar ate a pasta do projeto
+ "...\Teste\Algoritimos\Knewin.FirstNumberRepeat.ConsoleApp" e compilar a classe "FirstNumberRepeat.cs"
 			- Execultar arquivo criado
 				
 				- (Opicinal) Navegar ate a pasta do projeto 			  		"...\Teste\Algoritimos\Knewin.FirstNumberRepeat.ConsoleApp\Knewin.FirstNumberRepeat.ConsoleApp\bin\Release\netcoreapp3.1"
@@ -179,10 +179,11 @@
 
 --Iniciando o projeto
 	
-	- Baixar ou clonar projeto Knewin.Palindrome.ConsoleApp
+	- Ou Baixar ou clonar ou fazer um pull do projeto "Teste"
 		
 		--Rodando o projeto
-			- Abrir o terminal e navegar ate a pasta do projeto "...\Teste\Algoritimos\Knewin.Palindrome.ConsoleApp" e compilar a classe  "Palindrome.cs"
+			- Abrir o terminal e navegar ate a pasta do projeto 
+"...\Teste\Algoritimos\Knewin.Palindrome.ConsoleApp" e compilar a classe  "Palindrome.cs"
 			- Execultar arquivo criado
 				
 				- (Opicinal) Navegar ate a pasta do projeto   	"...\Teste\Algoritimos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\bin\Release\netcoreapp3.1"
