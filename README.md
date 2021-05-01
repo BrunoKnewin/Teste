@@ -3,11 +3,17 @@
 
 
 --Ferramentas utilizadas
+	
 	- Visual Studio 2019
+	
 	- Asp.Net Core 3.1
+	
 	- Entity Framework Core 5.05
+	
 	- Asp.Net Core Atuthentication 2.2.0
+	
 	- Sql Server 2019
+	
 	- Sql Server Management Studio 18
 
 --Iniciando o projeto
@@ -145,7 +151,9 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Algoritimos
    --Ferramentas utilizadas
+	
 	- Visual Studio 2019
+	
 	- Asp.Net Core 3.1
 	
 
