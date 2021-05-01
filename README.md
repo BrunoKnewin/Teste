@@ -38,11 +38,11 @@
 						- Realizar as requisições da API de acordo com a documentação abaixo
 					
 					--Realizando requisições que necessitam de Autenticação
-						- Fazer um POST de autenticação com o metodo "/User/Login" como descrito da documentação da API abaixo
+						- Fazer um POST de autenticação com o metodo "/User/Login" como descrito na documentação da API abaixo
 						
 						- Guardar o valor do token recebido como resposta do passo acima
 						
-						- Na aba "Authorization" selecionar no seletor "Type" o tipo de autorização "Bearer Token" e colocar o valor do token no campo           					   "Token"
+						- Na aba "Authorization" selecionar no seletor "Type" o tipo de autorização "Bearer Token" e colocar o valor do token no campo           					   "Token" (O tempo de vida do token é de 1 hora, após fazer outro login) 
 						
 						- Realizar as requisições da API de acordo com a documentação abaixo
 	
