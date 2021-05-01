@@ -11,14 +11,14 @@
 	- Sql Server Management Studio 18
 
 --Iniciando o projeto
-	- Baixar ou clonar projeto Knewin.InfoCity.WebApi
+	- Baixar, clonar ou fazer um pull do projeto "Teste"
 	- Criar banco de dados, sua estrutura e informações a partir do script InfoCityScriptDB.sql contido dentro da pasta principal (!)
 		
 		--Rodando o projeto
-			- Abra o arquivo "appsettings.json" contido no caminho "...\Knewin.InfoCity.WebApi\Knewin.InfoCity.WebApi.Api" e ajuste o nome do servidor Sql Server 
+			- Abra o arquivo "appsettings.json" contido no caminho "...\Teste\Knewin.InfoCity.WebApi\Knewin.InfoCity.WebApi.Api" e ajuste o nome do servidor Sql 				  Server 
 			  na seção "ConnectionStrings". Exemplo: "Data Source=NomeDoSeuServidor;Initial Catalog=InfoCityDB;Integrated Security=True"
 			
-			- Abrir o terminal e navegar ate a pasta do projeto "...\Knewin.InfoCity.WebApi\Knewin.InfoCity.WebApi.Api" e rodar o comando "dotnet watch run"
+			- Abrir o terminal e navegar ate a pasta do projeto "...\Teste\Knewin.InfoCity.WebApi\Knewin.InfoCity.WebApi.Api" e rodar o comando "dotnet watch run"
 			
 			- Guardar a porta contida no host "Now listening on:"
 			
@@ -40,7 +40,7 @@
 						
 						- Realizar as requisições da API de acordo com a documentação abaixo
 	
-	(!) Outra opção para iniciar o banco de é abrir abrir a aplicação com o visual studio a partir do diretório navegando ate a pasta "...\Knewin.InfoCity.WebApi".
+	(!) Outra opção para iniciar o banco de é abrir abrir a aplicação com o visual studio a partir do diretório navegando ate a pasta "...\Teste\Knewin.InfoCity.WebApi".
 	    Com o projeto aberto, abrir o "Console de gerenciador de pacotes", ajustar o projeto padãro para Knewin.InfoCity.Dal e definir o projeto "Knewin.InfoCity.WebApi.Api" 
 	    como "projeto de inicialização" no "Gerenciador de soluções". Rodar o comando "Update-database" e subir o arquivo com os dados "InfoCityScriptOnlyData.sql" para o 		    Sql Server.
 
@@ -152,11 +152,11 @@
 //Projeto Knewin.FirstNumberRepeat.ConsoleApp
 
 --Iniciando o projeto
-	- Baixar ou clonar projeto Knewin.FirstNumberRepeat.ConsoleApp
+	- Baixar, clonar ou fazer um pull do projeto "Teste"
 		--Rodando o projeto
-			- Abrir o terminal e navegar ate a pasta do projeto "...\Knewin.FirstNumberRepeat.ConsoleApp" e compilar a classe  "FirstNumberRepeat.cs"
+			- Abrir o terminal e navegar ate a pasta do projeto "...\Teste\Algoritimos\Knewin.FirstNumberRepeat.ConsoleApp" e compilar a classe  		   				"FirstNumberRepeat.cs"
 			- Execultar arquivo criado
-				- (Opicinal) Navegar ate a pasta do projeto "...\Knewin.FirstNumberRepeat.ConsoleApp\Knewin.FirstNumberRepeat.ConsoleApp\bin\Release\netcoreapp3.1"
+				- (Opicinal) Navegar ate a pasta do projeto 			  		"...\Teste\Algoritimos\Knewin.FirstNumberRepeat.ConsoleApp\Knewin.FirstNumberRepeat.ConsoleApp\bin\Release\netcoreapp3.1"
 				- (Opicinal) Execultar o arquivo "Knewin.FirstNumberRepeat.ConsoleApp.exe"
 
 				
@@ -167,9 +167,9 @@
 --Iniciando o projeto
 	- Baixar ou clonar projeto Knewin.Palindrome.ConsoleApp
 		--Rodando o projeto
-			- Abrir o terminal e navegar ate a pasta do projeto "...\Knewin.Palindrome.ConsoleApp" e compilar a classe  "Palindrome.cs"
+			- Abrir o terminal e navegar ate a pasta do projeto "...\Teste\Algoritimos\Knewin.Palindrome.ConsoleApp" e compilar a classe  "Palindrome.cs"
 			- Execultar arquivo criado
-				- (Opicinal) Navegar ate a pasta do projeto "...\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\bin\Release\netcoreapp3.1"
+				- (Opicinal) Navegar ate a pasta do projeto   	"...\Teste\Algoritimos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\bin\Release\netcoreapp3.1"
 				- (Opicinal) Execultar o arquivo "Knewin.Palindrome.ConsoleApp.exe"
 				
 
