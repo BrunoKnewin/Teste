@@ -15,7 +15,7 @@
 	- Criar banco de dados, sua estrutura e informações a partir do script InfoCityScriptDB.sql contido dentro da pasta principal (!)
 		
 		--Rodando o projeto
-			- Abra o arquivo "appsettings.json" contido no caminho "...\Teste\Knewin.InfoCity.WebApi\Knewin.InfoCity.WebApi.Api" e ajuste o nome do servidor Sql 				  Server 
+			- Abra o arquivo "appsettings.json" contido no caminho "...\Teste\Knewin.InfoCity.WebApi\Knewin.InfoCity.WebApi.Api" e ajuste o nome do servidor Sql Server 
 			  na seção "ConnectionStrings". Exemplo: "Data Source=NomeDoSeuServidor;Initial Catalog=InfoCityDB;Integrated Security=True"
 			
 			- Abrir o terminal e navegar ate a pasta do projeto "...\Teste\Knewin.InfoCity.WebApi\Knewin.InfoCity.WebApi.Api" e rodar o comando "dotnet watch run"
@@ -152,10 +152,15 @@
 //Projeto Knewin.FirstNumberRepeat.ConsoleApp
 
 --Iniciando o projeto
+	
 	- Baixar, clonar ou fazer um pull do projeto "Teste"
+		
 		--Rodando o projeto
+			
 			- Abrir o terminal e navegar ate a pasta do projeto "...\Teste\Algoritimos\Knewin.FirstNumberRepeat.ConsoleApp" e compilar a classe  		   				"FirstNumberRepeat.cs"
+			
 			- Execultar arquivo criado
+				
 				- (Opicinal) Navegar ate a pasta do projeto 			  		"...\Teste\Algoritimos\Knewin.FirstNumberRepeat.ConsoleApp\Knewin.FirstNumberRepeat.ConsoleApp\bin\Release\netcoreapp3.1"
 				- (Opicinal) Execultar o arquivo "Knewin.FirstNumberRepeat.ConsoleApp.exe"
 
@@ -165,10 +170,13 @@
 //Projeto Knewin.Palindrome.ConsoleApp
 
 --Iniciando o projeto
+	
 	- Baixar ou clonar projeto Knewin.Palindrome.ConsoleApp
+		
 		--Rodando o projeto
 			- Abrir o terminal e navegar ate a pasta do projeto "...\Teste\Algoritimos\Knewin.Palindrome.ConsoleApp" e compilar a classe  "Palindrome.cs"
 			- Execultar arquivo criado
+				
 				- (Opicinal) Navegar ate a pasta do projeto   	"...\Teste\Algoritimos\Knewin.Palindrome.ConsoleApp\Knewin.Palindrome.ConsoleApp\bin\Release\netcoreapp3.1"
 				- (Opicinal) Execultar o arquivo "Knewin.Palindrome.ConsoleApp.exe"
 				
