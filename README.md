@@ -12,9 +12,12 @@
 	
 	- Asp.Net Core Atuthentication 2.2.0
 	
+	- Web API 
+	
 	- Sql Server 2019
 	
 	- Sql Server Management Studio 18
+	 
 
 --Iniciando o projeto
 	- Ou Baixar ou clonar ou fazer um pull do projeto "Teste"
