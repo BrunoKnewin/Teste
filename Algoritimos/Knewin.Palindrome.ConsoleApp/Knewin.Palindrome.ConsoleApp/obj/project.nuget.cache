@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "vxsjp3gdGt+3OP4im2KLhfnQAseshCjgbN6f3p0Kg841ZJNjE9yU2m4MLljXQZzF1YvjpcVHHLYQgEV7ZWOzrw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\cepedi-note\\source\\repos\\Knewin.Palindrome.ConsoleApp\\Knewin.Palindrome.ConsoleApp\\Knewin.Palindrome.ConsoleApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\cepedi-note\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
